@@ -1,0 +1,10 @@
+# QuantMind RL prototype — lean runtime (no scipy/sklearn/shap; XAI is
+# implemented from scratch in NumPy to stay lightweight). Tested with Python 3.12.
+numpy>=1.26,<2.1
+pandas>=2.1
+matplotlib>=3.8
+yfinance>=0.2.40
+gymnasium>=0.29
+stable-baselines3>=2.3
+torch>=2.2
+tqdm>=4.66

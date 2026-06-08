@@ -1,0 +1,2 @@
+QuantMind allocates most to JNJ (40% of the portfolio).
+Main drivers: its RSI (overbought/oversold) increased the weight; its 20-day volatility increased the weight; its price vs its 20-day average increased the weight.

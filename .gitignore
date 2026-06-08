@@ -1,0 +1,34 @@
+# ---- Python / virtualenv (NEVER commit — hundreds of MB) ----
+quantmind_prototype/.venv/
+**/.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# ---- Local tooling / editor state ----
+.claude/
+
+# ---- LaTeX build artefacts (keep .tex and .bib, drop build output) ----
+report/*.aux
+report/*.log
+report/*.out
+report/*.toc
+report/*.bbl
+report/*.blg
+report/*.synctex.gz
+report/*.fdb_latexmk
+report/*.fls
+
+# NOTE: the following ARE intentionally committed so the repo is self-contained:
+#   frontend/data.js                 (dashboard needs it to open standalone)
+#   frontend/vendor/chart.umd.min.js (offline charting)
+#   quantmind_prototype/data/prices.csv  (cached data, reproducibility)
+#   quantmind_prototype/models/*.zip (trained model, small)
+#   quantmind_prototype/results/*    (figures used by the report/demo)
