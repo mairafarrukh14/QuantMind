@@ -1,0 +1,57 @@
+% ===========================================================================
+%  QuantMind — CM3070 Final Project, Preliminary Report
+%  Template 4.2: Financial Advisor Bot
+%
+%  Overleaf-ready. Compiles with pdfLaTeX + BibTeX (run: pdflatex -> bibtex ->
+%  pdflatex x2). LaTeX is not yet installed locally; upload this folder to
+%  Overleaf, or install a TeX distribution, to build the PDF.
+%
+%  WORD LIMITS (strict per chapter; 6000 total): Intro 1000, Lit Review 2500,
+%  Design 2000, Prototype 1500. Only Chapter 4 is complete so far.
+% ===========================================================================
+\documentclass[11pt,a4paper]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage[round]{natbib}   % author-year citations; swap to numeric if preferred
+\usepackage{caption}
+
+\hypersetup{colorlinks=true, linkcolor=black, citecolor=black, urlcolor=blue}
+\graphicspath{{figures/}}
+
+\title{\textbf{QuantMind}\\[0.4em]
+       An Explainable AI Financial Advisor Bot for\\
+       Intelligent Active Portfolio Management\\[0.8em]
+       \large CM3070 Final Project --- Preliminary Report\\
+       \normalsize Project Template 4.2: Financial Advisor Bot}
+\author{Maira Farukkh}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+% --- Chapter 1: Introduction (max 1000 words) ------------------------------
+\input{chapters/chapter1_introduction}
+
+% --- Chapter 2: Literature Review (max 2500 words) -------------------------
+\input{chapters/chapter2_literature}
+
+% --- Chapter 3: Design (max 2000 words) ------------------------------------
+\input{chapters/chapter3_design}
+
+% --- Chapter 4: Feature Prototype (max 1500 words) -------------------------
+\input{chapters/chapter4_prototype}
+
+% --- References ------------------------------------------------------------
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}

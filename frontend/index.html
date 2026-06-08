@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>QuantMind — Explainable AI Portfolio Advisor</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>" />
+</head>
+<body>
+<div class="app">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#04121a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 17l5-5 4 4 8-9"/><path d="M16 7h5v5"/>
+        </svg>
+      </div>
+      <div>
+        <div class="brand-name">Quant<b>Mind</b></div>
+        <div class="brand-sub">AI Portfolio Advisor</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <div class="nav-label">Workspace</div>
+      <div class="nav-item active" data-view="dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+        Dashboard
+      </div>
+      <div class="nav-item" data-view="recommendations">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
+        Recommendations
+      </div>
+      <div class="nav-item" data-view="explainability">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="12" y="7" width="3" height="10"/><rect x="17" y="13" width="3" height="4"/></svg>
+        Explainability
+      </div>
+      <div class="nav-item" data-view="assistant">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        AI Assistant
+      </div>
+      <div class="nav-item" data-view="performance">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        Performance
+      </div>
+    </nav>
+
+    <div class="sidebar-foot">
+      <div class="data-chip">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--brand-2)" stroke-width="2" stroke-linecap="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg>
+        <span>S&amp;P 500 · <b id="foot-source">cache</b></span>
+      </div>
+      <div class="user-row">
+        <div class="avatar">MF</div>
+        <div class="meta"><div class="n">Maira Farukkh</div><div class="r">Retail Investor</div></div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="main">
+    <header class="topbar">
+      <div class="page-title">
+        <h1 id="pg-title">Portfolio Dashboard</h1>
+        <p id="pg-sub">Active, explainable allocation across 5 S&amp;P 500 assets</p>
+      </div>
+      <div class="topbar-right">
+        <span class="pill"><span class="dot"></span> Live model</span>
+        <span class="pill value">Portfolio <b class="num" id="top-value">£0</b></span>
+      </div>
+    </header>
+
+    <!-- ===== DASHBOARD ===== -->
+    <section class="view active" id="view-dashboard">
+      <div class="grid kpi-grid" id="kpi-grid"></div>
+
+      <div class="grid cols-2">
+        <div class="card card-pad">
+          <div class="card-head">
+            <div><h3>Portfolio Value</h3><div class="sub" id="equity-range">Held-out test period</div></div>
+            <div class="seg" id="equity-seg">
+              <button class="active" data-cmp="buyhold">vs Buy &amp; Hold</button>
+              <button data-cmp="best">vs Best Asset</button>
+            </div>
+          </div>
+          <div class="chart-wrap lg"><canvas id="equityChart"></canvas></div>
+          <div class="legend" id="equity-legend"></div>
+        </div>
+
+        <div class="card card-pad">
+          <div class="card-head"><div><h3>Current Allocation</h3><div class="sub">Capped at 40% per asset</div></div></div>
+          <div class="donut-wrap chart-wrap sm">
+            <canvas id="allocDonut"></canvas>
+            <div class="donut-center"><div><div class="big num" id="donut-invested">0%</div><div class="small">Invested</div></div></div>
+          </div>
+          <div class="alloc-list" id="alloc-list"></div>
+        </div>
+      </div>
+
+      <div class="grid section-gap">
+        <div class="card card-pad">
+          <div class="card-head"><div><h3>Allocation Over Time</h3><div class="sub">How QuantMind actively rotates capital</div></div></div>
+          <div class="chart-wrap md"><canvas id="allocArea"></canvas></div>
+          <div class="legend" id="area-legend"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== RECOMMENDATIONS ===== -->
+    <section class="view" id="view-recommendations">
+      <div class="rationale" id="rationale-banner">
+        <div class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="#04121a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v1a4 4 0 0 0 0 8v1a4 4 0 0 0 8 0v-1a4 4 0 0 0 0-8V6a4 4 0 0 0-4-4z"/></svg></div>
+        <div class="body"><div class="h">QuantMind's rationale for today</div><div class="txt" id="rationale-text"></div></div>
+      </div>
+      <div class="card card-pad section-gap">
+        <div class="card-head"><div><h3>Today's Recommendations</h3><div class="sub">Click any holding to see why the agent chose it</div></div><span class="card-tag">Shapley-explained</span></div>
+        <div class="reco" id="reco-list"></div>
+      </div>
+    </section>
+
+    <!-- ===== EXPLAINABILITY ===== -->
+    <section class="view" id="view-explainability">
+      <div class="grid cols-2">
+        <div class="card card-pad">
+          <div class="card-head"><div><h3>Global Feature Importance</h3><div class="sub">Mean |Shapley value| across decisions</div></div></div>
+          <div class="chart-wrap lg"><canvas id="shapChart"></canvas></div>
+        </div>
+        <div class="card card-pad">
+          <div class="card-head"><div><h3>How QuantMind Explains Itself</h3></div></div>
+          <p class="explain-note">
+            Every allocation is attributed back to its drivers using
+            <b>Shapley-value sampling</b> — the game-theoretic method underlying
+            <b>SHAP</b>. The agent is treated as a function from market features to
+            portfolio weights, and each feature's contribution is measured by how
+            the allocation changes as that feature is revealed across random
+            coalitions.
+          </p>
+          <p class="explain-note" style="margin-top:14px;">
+            The chart shows the agent leans most on <b>position inertia</b> (its
+            current holdings — it avoids needless churn), then on <b>MACD trend</b>
+            and <b>RSI</b> signals. No black boxes: when QuantMind recommends an
+            asset, you see exactly which signals moved the decision.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Model-agnostic</span>
+            <span class="tag">Local + global</span>
+            <span class="tag">Efficiency axiom</span>
+            <span class="tag">No retraining needed</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== AI ASSISTANT ===== -->
+    <section class="view" id="view-assistant">
+      <div class="card card-pad">
+        <div class="card-head"><div><h3>AI Assistant</h3><div class="sub">Ask about your portfolio in plain English</div></div><span class="card-tag">Natural-language Q&amp;A</span></div>
+        <div class="chat">
+          <div class="chat-stream" id="chat-stream"></div>
+          <div>
+            <div class="suggest" id="suggest"></div>
+            <div class="chat-input">
+              <input id="chat-input" placeholder="e.g. Why did you overweight JNJ?" autocomplete="off" />
+              <button id="chat-send"><svg viewBox="0 0 24 24" fill="none" stroke="#04121a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PERFORMANCE ===== -->
+    <section class="view" id="view-performance">
+      <div class="card card-pad">
+        <div class="card-head"><div><h3>Performance vs Baselines</h3><div class="sub" id="perf-range">Held-out test period — out-of-sample</div></div></div>
+        <table class="table" id="perf-table"></table>
+        <p class="disclaimer" id="perf-note"></p>
+      </div>
+      <div class="grid cols-2b section-gap">
+        <div class="card card-pad">
+          <div class="card-head"><div><h3>Risk vs Return</h3><div class="sub">Annualised volatility vs CAGR</div></div></div>
+          <div class="chart-wrap md"><canvas id="riskReturn"></canvas></div>
+        </div>
+        <div class="card card-pad">
+          <div class="card-head"><div><h3>Risk-Adjusted Metrics</h3><div class="sub">Sharpe &amp; Sortino ratios</div></div></div>
+          <div class="chart-wrap md"><canvas id="ratioChart"></canvas></div>
+        </div>
+      </div>
+      <p class="disclaimer">
+        <b>QuantMind is a research prototype, not financial advice.</b> Results are
+        backtested on historical S&amp;P 500 data over an out-of-sample period and do
+        not guarantee future performance.
+      </p>
+    </section>
+  </main>
+</div>
+
+<script src="vendor/chart.umd.min.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
