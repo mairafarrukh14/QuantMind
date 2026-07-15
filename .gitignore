@@ -15,16 +15,8 @@ Thumbs.db
 # ---- Local tooling / editor state ----
 .claude/
 
-# ---- LaTeX build artefacts (keep .tex and .bib, drop build output) ----
-report/*.aux
-report/*.log
-report/*.out
-report/*.toc
-report/*.bbl
-report/*.blg
-report/*.synctex.gz
-report/*.fdb_latexmk
-report/*.fls
+# ---- Report (kept local only, not published to GitHub) ----
+report/
 
 # NOTE: the following ARE intentionally committed so the repo is self-contained:
 #   frontend/data.js                 (dashboard needs it to open standalone)
