@@ -160,6 +160,15 @@ body {
 .pill.value { background: var(--brand-grad-soft); border-color: var(--border-strong); color: var(--text); font-weight: 600; }
 .pill.value b { font-variant-numeric: tabular-nums; }
 
+.amount-pill { cursor: text; }
+.amount-pill input {
+  width: 84px; background: transparent; border: none; outline: none;
+  color: var(--text); font-size: 13px; font-weight: 600; font-family: inherit;
+  font-variant-numeric: tabular-nums; padding: 0; margin-left: 2px;
+}
+.amount-pill input::-webkit-inner-spin-button,
+.amount-pill input::-webkit-outer-spin-button { opacity: 0.5; }
+
 .view { padding: 26px 32px 48px; display: none; animation: fade .35s ease; }
 .view.active { display: block; }
 @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }

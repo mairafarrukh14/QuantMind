@@ -161,7 +161,6 @@ def _plot_global_importance(phi_all, feat_names, top_k=15):
     order = np.argsort(importance)[::-1][:top_k]
     fig, ax = plt.subplots(figsize=(8, 6))
     ax.barh([feat_names[i] for i in order][::-1], importance[order][::-1], color="#3b6ea5")
-    ax.set_title("QuantMind XAI — global feature importance\n(mean |Shapley value| over test decisions)")
     ax.set_xlabel("Mean |Shapley value| (impact on allocation)")
     fig.tight_layout()
     fig.savefig(os.path.join(config.RESULTS_DIR, "shap_importance.png"), dpi=150)

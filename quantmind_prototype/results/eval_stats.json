@@ -1,0 +1,65 @@
+{
+  "per_seed_vs_1N": {
+    "1": {
+      "sharpe_diff": -0.20909105357960456,
+      "ci_low": -0.8465371453128804,
+      "ci_high": 0.42735380994796096,
+      "prob_positive": 0.2629,
+      "n_boot": 10000
+    },
+    "13": {
+      "sharpe_diff": -0.17339410445867298,
+      "ci_low": -0.8519780106959577,
+      "ci_high": 0.5182819236587909,
+      "prob_positive": 0.3148,
+      "n_boot": 10000
+    },
+    "42": {
+      "sharpe_diff": 0.10357343316682832,
+      "ci_low": -0.42884919955098516,
+      "ci_high": 0.6449007021029404,
+      "prob_positive": 0.6488,
+      "n_boot": 10000
+    },
+    "7": {
+      "sharpe_diff": -0.559574932855113,
+      "ci_low": -1.179782530775997,
+      "ci_high": 0.07099426387141848,
+      "prob_positive": 0.0417,
+      "n_boot": 10000
+    },
+    "99": {
+      "sharpe_diff": -0.45482608972949007,
+      "ci_low": -1.1246601422093125,
+      "ci_high": 0.2228203255123437,
+      "prob_positive": 0.0962,
+      "n_boot": 10000
+    }
+  },
+  "pooled_vs_1N": {
+    "sharpe_diff": -0.2575182026536178,
+    "ci_low": -0.5368628676313673,
+    "ci_high": 0.02776291043063252,
+    "prob_positive": 0.0388,
+    "n_boot": 10000
+  },
+  "pooled_sentiment_vs_1N": {
+    "sharpe_diff": 0.09737120771758478,
+    "ci_low": -0.14045604489466065,
+    "ci_high": 0.34035073958191797,
+    "prob_positive": 0.7865,
+    "n_boot": 10000
+  },
+  "deflated_sharpe_best_seed": {
+    "sharpe_ann": 0.9148428094127933,
+    "expected_max_sharpe_ann": 0.4962630953636422,
+    "n_trials": 10,
+    "deflated_sharpe": 0.7643892676937893
+  },
+  "random_floor": {
+    "mean_sharpe": -0.27756614675301045,
+    "std_sharpe": 0.20983422271391663,
+    "n_runs": 100
+  },
+  "n_trials": 10
+}

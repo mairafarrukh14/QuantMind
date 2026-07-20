@@ -1,0 +1,156 @@
+{
+  "seeds": [
+    42,
+    1,
+    7,
+    13,
+    99
+  ],
+  "variants": [
+    "price",
+    "sentiment"
+  ],
+  "timesteps": 150000,
+  "runs": [
+    {
+      "run_id": "price_seed42",
+      "variant": "price",
+      "seed": 42,
+      "metrics": {
+        "Total Return": 0.4940323374101294,
+        "CAGR": 0.144213190299193,
+        "Ann. Volatility": 0.16153656030332408,
+        "Sharpe": 0.9148428162185994,
+        "Sortino": 1.3418714594644592,
+        "Max Drawdown": -0.13749674546922785,
+        "Turnover": 0.04832254350185394
+      }
+    },
+    {
+      "run_id": "price_seed1",
+      "variant": "price",
+      "seed": 1,
+      "metrics": {
+        "Total Return": 0.2887400927807706,
+        "CAGR": 0.08884551295488197,
+        "Ann. Volatility": 0.163559696941512,
+        "Sharpe": 0.6021783204298554,
+        "Sortino": 0.8810904600064972,
+        "Max Drawdown": -0.1726150994813379,
+        "Turnover": 0.04797164350748062
+      }
+    },
+    {
+      "run_id": "price_seed7",
+      "variant": "price",
+      "seed": 7,
+      "metrics": {
+        "Total Return": 0.08406424143880598,
+        "CAGR": 0.027454982894627555,
+        "Ann. Volatility": 0.15579878923858417,
+        "Sharpe": 0.25169442672342,
+        "Sortino": 0.36865191518281004,
+        "Max Drawdown": -0.18919483335651063,
+        "Turnover": 0.05989157035946846
+      }
+    },
+    {
+      "run_id": "price_seed13",
+      "variant": "price",
+      "seed": 13,
+      "metrics": {
+        "Total Return": 0.4003568336933596,
+        "CAGR": 0.11962034237191332,
+        "Ann. Volatility": 0.21250386283526085,
+        "Sharpe": 0.637875263103574,
+        "Sortino": 0.9235104917872831,
+        "Max Drawdown": -0.24904562369676417,
+        "Turnover": 0.027172718197107315
+      }
+    },
+    {
+      "run_id": "price_seed99",
+      "variant": "price",
+      "seed": 99,
+      "metrics": {
+        "Total Return": 0.1475015017014636,
+        "CAGR": 0.047249984011866086,
+        "Ann. Volatility": 0.1700959229359085,
+        "Sharpe": 0.3564432837655385,
+        "Sortino": 0.5133172315188508,
+        "Max Drawdown": -0.21999939079048297,
+        "Turnover": 0.04227334260940552
+      }
+    },
+    {
+      "run_id": "sentiment_seed42",
+      "variant": "sentiment",
+      "seed": 42,
+      "metrics": {
+        "Total Return": 0.20290929053124973,
+        "CAGR": 0.06395277324821258,
+        "Ann. Volatility": 0.1594003006651012,
+        "Sharpe": 0.46855484266119185,
+        "Sortino": 0.6938748513091317,
+        "Max Drawdown": -0.17693810420848702,
+        "Turnover": 0.025444395840168
+      }
+    },
+    {
+      "run_id": "sentiment_seed1",
+      "variant": "sentiment",
+      "seed": 1,
+      "metrics": {
+        "Total Return": 0.46860250631766376,
+        "CAGR": 0.13764080114859123,
+        "Ann. Volatility": 0.18249988394567063,
+        "Sharpe": 0.7979065563739108,
+        "Sortino": 1.1550424116862608,
+        "Max Drawdown": -0.1488497680678024,
+        "Turnover": 0.059730276465415955
+      }
+    },
+    {
+      "run_id": "sentiment_seed7",
+      "variant": "sentiment",
+      "seed": 7,
+      "metrics": {
+        "Total Return": 0.6581279397691886,
+        "CAGR": 0.1849319306271,
+        "Ann. Volatility": 0.1709598770155941,
+        "Sharpe": 1.0781827110198385,
+        "Sortino": 1.5867951461257155,
+        "Max Drawdown": -0.20076010641175707,
+        "Turnover": 0.07150737196207047
+      }
+    },
+    {
+      "run_id": "sentiment_seed13",
+      "variant": "sentiment",
+      "seed": 13,
+      "metrics": {
+        "Total Return": 0.5401307125718071,
+        "CAGR": 0.15594037580207454,
+        "Ann. Volatility": 0.16035540256340367,
+        "Sharpe": 0.9840287291175562,
+        "Sortino": 1.4616657603888594,
+        "Max Drawdown": -0.12204898129664796,
+        "Turnover": 0.05874352529644966
+      }
+    },
+    {
+      "run_id": "sentiment_seed99",
+      "variant": "sentiment",
+      "seed": 99,
+      "metrics": {
+        "Total Return": 0.8159120798355788,
+        "CAGR": 0.22163070185808076,
+        "Ann. Volatility": 0.18290785448907856,
+        "Sharpe": 1.186056890603848,
+        "Sortino": 1.7701400447084656,
+        "Max Drawdown": -0.14240502880731173,
+        "Turnover": 0.07197307795286179
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "best_seed_run": "price_seed42",
+  "canonical": {
+    "Total Return": 0.494,
+    "CAGR": 0.1442,
+    "Ann. Volatility": 0.1615,
+    "Sharpe": 0.9148,
+    "Sortino": 1.3419,
+    "Max Drawdown": -0.1375,
+    "Turnover": 0.0483,
+    "Portfolio value": 149403.23
+  },
+  "canonical_pct": {
+    "Total Return": "49.4%",
+    "CAGR": "14.4%",
+    "Ann. Volatility": "16.2%",
+    "Sharpe": "0.91",
+    "Sortino": "1.34",
+    "Max Drawdown": "-13.7%"
+  },
+  "surfaces_checked": [
+    "dashboard.sharpe",
+    "dashboard.total_return",
+    "dashboard.max_drawdown",
+    "dashboard.cagr",
+    "eval.sharpe",
+    "eval.max_drawdown"
+  ],
+  "mismatches": [],
+  "clean": true
+}

@@ -1,0 +1,35 @@
+{
+  "placebo_mean_sharpe": 0.8678976862811701,
+  "placebo_sd_sharpe": 0.2475166480709566,
+  "placebo_sharpes": [
+    0.8527930845666791,
+    1.0807234973399744,
+    0.4565204707678177,
+    0.9135728827507662,
+    1.035878495980613
+  ],
+  "price_only_mean_sharpe": 0.5526068220481974,
+  "real_sentiment_mean_sharpe": 0.9029459459552692,
+  "placebo_vs_1N": {
+    "sharpe_diff": 0.05566339355163419,
+    "ci_low": -0.17833269884816885,
+    "ci_high": 0.2956129167104625,
+    "prob_positive": 0.6802,
+    "n_boot": 10000
+  },
+  "placebo_vs_price_only": {
+    "sharpe_diff": 0.313181596205252,
+    "ci_low": -0.07297266431684007,
+    "ci_high": 0.6943010978831274,
+    "prob_positive": 0.9468,
+    "n_boot": 10000
+  },
+  "real_sentiment_vs_placebo": {
+    "sharpe_diff": 0.041707814165950596,
+    "ci_low": -0.14938723263629228,
+    "ci_high": 0.22992849558656644,
+    "prob_positive": 0.662,
+    "n_boot": 10000
+  },
+  "verdict": "dynamics: placebo (shuffled-date sentiment) performs close to real sentiment and well above price-only, so the earlier ablation's gain is not attributable to genuine information in the sentiment signal"
+}

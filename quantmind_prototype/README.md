@@ -1,58 +1,88 @@
-# QuantMind — RL Feature Prototype
+# QuantMind — Explainable AI Financial Advisor
 
-Feature prototype for the CM3070 preliminary report (Template 4.2, *Financial
-Advisor Bot*). It implements the single most important and most technically
-challenging feature of QuantMind: a **reinforcement-learning active
-portfolio-management agent** with an **explainability (XAI) layer**, evaluated
-against a buy-and-hold baseline.
+CM3070 Final Year Project, Template 4.2 (*Financial Advisor Bot*). QuantMind is a
+reinforcement-learning portfolio advisor that runs an active strategy, attaches a
+faithful, audited explanation to every decision, and serves it through a web
+dashboard for a non-technical user. Everything below reproduces from a fresh clone;
+all reported numbers are read from locked artifacts in `results/`.
 
-This is intentionally *one* feature of the full QuantMind design (RL + FinBERT
-sentiment + XAI + LLaMA-3 narration + React UI). The prototype proves the
-hardest part — the RL decision engine and its explanations — is feasible.
-
-## What it does
+## Pipeline
 
 ```
-prices (yfinance, cached)  ->  technical features  ->  PortfolioEnv (Gymnasium)
-        ->  PPO agent (Stable-Baselines3)  ->  backtest vs Buy&Hold
-        ->  SHAP feature attribution  ->  plain-English rationale
+prices (yfinance, cached) + FinBERT news sentiment
+   -> PortfolioEnv (Gymnasium)  -> PPO agent (Stable-Baselines3)   [train once, lock]
+   -> Shapley attribution (from scratch)  -> audited LLM rationale (Ollama)
+   -> evaluation (baselines, bootstrap CI, deflated Sharpe, deletion test)
+   -> FastAPI backend + static dashboard
 ```
 
-* **Data** (`src/data.py`): daily adjusted close for 5 diversified S&P 500
-  names (AAPL, MSFT, JPM, XOM, JNJ), 2015–2024, cached to `data/prices.csv`.
-  Falls back to a correlated GBM simulator if Yahoo is unreachable (flagged in
-  output) so the demo always runs.
-* **Environment** (`src/env.py`): a custom Gymnasium env framing active
-  portfolio management as decision-making under uncertainty (Jiang et al. 2017
-  style). Continuous action = target weight vector over assets + cash; reward =
-  log return net of transaction costs minus a volatility penalty.
-* **Agent** (`src/train.py`): PPO (Schulman et al. 2017) via Stable-Baselines3.
-* **Backtest** (`src/backtest.py`): held-out test period (2022-01 onward).
-  Metrics: total return, CAGR, volatility, Sharpe, Sortino, max drawdown,
-  turnover. Baselines: equal-weight buy & hold, best ex-post single asset.
-* **XAI** (`src/explain.py`): **Shapley-value sampling** (Strumbelj &
-  Kononenko, 2014 — the estimator underlying SHAP) implemented from scratch in
-  NumPy, treating the policy as `obs -> weights`. Attributes each allocation to
-  its drivers; produces a global importance chart and a per-decision
-  natural-language rationale. Implemented directly (no `shap`/`numba`
-  dependency) to stay lightweight and keep the algorithm transparent.
+Key modules (`src/`): `data.py` (prices + 7 technical features), `env.py`
+(environment + reward, no-look-ahead), `train.py` (PPO), `explain.py` (Shapley
+sampling), `sentiment.py` (FinBERT, pre-close leakage filter), `audit.py` +
+`rationale.py` (rephrase-only LLM + automatic audit), `baselines.py` + `stats.py`
+(evaluation), `study_log.py` (user study).
 
-## Run
+## Setup
 
 ```bash
 cd quantmind_prototype
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-
-python run_prototype.py            # full run (~200k PPO steps + Shapley XAI)
-python run_prototype.py --quick    # fast smoke test
-python run_prototype.py --no-shap  # skip the (slower) attribution stage
 ```
 
-Artefacts written to `results/`:
-`equity_curve.png`, `allocation.png`, `shap_importance.png`,
-`metrics.csv`, `rationale.txt`, `run_summary.json`.
+Optional (for the sentiment and LLM components — not needed to reproduce
+training, evaluation, the tests or the dashboard, which read the already-locked
+`data/news/sentiment_cache.csv` and `results/`):
+```bash
+pip install -r requirements-optional.txt
+```
+- **Sentiment**: needs the FNSPID news dataset. `python fetch_news.py` downloads and
+  filters it (a Hugging Face token in `HF_TOKEN` avoids rate limits), then
+  `python build_sentiment.py` scores it with FinBERT.
+- **LLM rationale**: install [Ollama](https://ollama.com), then `ollama pull llama3.2:1b`.
 
-## Reproducibility
-Single seed (`config.SEED = 42`) across NumPy, the env and PPO. All tunables
-live in `src/config.py`.
+## Reproduce every result (from locked artifacts)
+
+```bash
+python -m pytest                     # W1: 8 property tests (pass table -> results/)
+python run_experiments_w3.py         # W3: 10 locked runs (5 seeds x sentiment off/on)
+python run_experiments_placebo.py    # CO-17: 5 seeds, sentiment date-shuffled (control)
+python run_evaluation.py             # W4: main table, baselines, bootstrap CI, DSR
+python run_faithfulness.py           # W5: explanation deletion test + figure
+python run_walkforward.py            # Table 5: three-window walk-forward retraining
+python run_audit_eval.py             # W6: LLM audit pass-rate (needs Ollama)
+python run_reconcile.py              # W8: one source of truth, zero mismatches
+python export_frontend_data.py       # build the locked dashboard payload + data.js
+```
+
+Training is deterministic (fixed seeds, cached data, pinned versions); nothing is
+retrained after `run_experiments_w3.py`, and every table/figure/endpoint reads the
+same locked files.
+
+## Dashboard
+
+Two equivalent modes, both reading the one locked payload. Quote paths that
+contain spaces or parentheses (Windows and some macOS setups).
+
+```bash
+# 1. Live API + dashboard
+uvicorn serve:app --port 8000        # then open http://localhost:8000/
+
+# 2. No server at all (static fallback) -- cross-platform
+cd ../frontend && python -m http.server 8080   # then open http://localhost:8080/
+# macOS shortcut:   open "../frontend/index.html"
+# Windows shortcut: start "" "..\frontend\index.html"
+```
+
+## Tests
+
+```bash
+python -m pytest                     # runs tests/test_properties.py
+```
+
+The eight properties: no look-ahead, valid simplex, cap enforced, exact cost,
+Shapley closed-form, Shapley efficiency, sentiment pre-close no-leakage, and audit
+rejects corrupted rationales. All pass on a fresh clone.
+
+## Configuration
+All tunables live in `src/config.py` (asset universe, dates, costs, PPO budget).

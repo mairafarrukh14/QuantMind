@@ -1,0 +1,38 @@
+{
+  "tests": [
+    {
+      "property": "1. No look-ahead in reward",
+      "result": "passed"
+    },
+    {
+      "property": "2. Valid simplex (weights >=0, sum to 1)",
+      "result": "passed"
+    },
+    {
+      "property": "3. Position cap enforced (<=40%)",
+      "result": "passed"
+    },
+    {
+      "property": "4. Cost = rate x turnover exactly",
+      "result": "passed"
+    },
+    {
+      "property": "5. Shapley matches closed form (<0.01)",
+      "result": "passed"
+    },
+    {
+      "property": "6. Shapley efficiency axiom",
+      "result": "passed"
+    },
+    {
+      "property": "7. Sentiment pre-close no-leakage",
+      "result": "passed"
+    },
+    {
+      "property": "8. Audit rejects corrupted rationales",
+      "result": "passed"
+    }
+  ],
+  "n_passed": 8,
+  "n_total": 8
+}

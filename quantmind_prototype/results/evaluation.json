@@ -1,0 +1,165 @@
+{
+  "source": "cache",
+  "test_days": 751,
+  "variants": [
+    "price",
+    "sentiment"
+  ],
+  "main_table": {
+    "PPO (mean)": {
+      "Total Return": 0.28293900140490585,
+      "CAGR": 0.08547680250649639,
+      "Ann. Volatility": 0.17269896645091792,
+      "Sharpe": 0.5526068220481974,
+      "Sortino": 0.8056883115919801,
+      "Max Drawdown": -0.19367033855886473,
+      "_sd": {
+        "Total Return": 0.17049595521872254,
+        "CAGR": 0.048618190985612764,
+        "Ann. Volatility": 0.022830610809212875,
+        "Sharpe": 0.2597938410432894,
+        "Sortino": 0.3819494660434092,
+        "Max Drawdown": 0.04294900172165576
+      }
+    },
+    "PPO (best seed 42)": {
+      "Total Return": 0.4940323374101294,
+      "CAGR": 0.144213190299193,
+      "Ann. Volatility": 0.16153656030332408,
+      "Sharpe": 0.9148428162185994,
+      "Sortino": 1.3418714594644592,
+      "Max Drawdown": -0.13749674546922785,
+      "Turnover": 0.04832254350185394
+    },
+    "PPO+sentiment (mean)": {
+      "Total Return": 0.5371365058050976,
+      "CAGR": 0.15281931653681183,
+      "Ann. Volatility": 0.1712246637357696,
+      "Sharpe": 0.9029459459552692,
+      "Sortino": 1.3335036428436866,
+      "Max Drawdown": -0.15820039775840122,
+      "_sd": {
+        "Total Return": 0.2284559331459394,
+        "CAGR": 0.05895680111305254,
+        "Ann. Volatility": 0.011419873570088621,
+        "Sharpe": 0.2815861557854533,
+        "Sortino": 0.42196174691200766,
+        "Max Drawdown": 0.030847541683945393
+      }
+    },
+    "PPO+sentiment (best seed 99)": {
+      "Total Return": 0.8159120798355788,
+      "CAGR": 0.22163070185808076,
+      "Ann. Volatility": 0.18290785448907856,
+      "Sharpe": 1.186056890603848,
+      "Sortino": 1.7701400447084656,
+      "Max Drawdown": -0.14240502880731173,
+      "Turnover": 0.07197307795286179
+    },
+    "Buy & Hold (1/N)": {
+      "Total Return": 0.4164633690860997,
+      "CAGR": 0.12392504016107608,
+      "Ann. Volatility": 0.15974178576715664,
+      "Sharpe": 0.811269376245965,
+      "Sortino": 1.188685577792181,
+      "Max Drawdown": -0.12877876611422298
+    },
+    "Markowitz (train-fit)": {
+      "Total Return": 0.45680599536702804,
+      "CAGR": 0.13456627877764582,
+      "Ann. Volatility": 0.20566667658873214,
+      "Sharpe": 0.7166074909048797,
+      "Sortino": 1.0615746062791105,
+      "Max Drawdown": -0.30297747625149685
+    },
+    "12-1 momentum": {
+      "Total Return": 0.28084105317068797,
+      "CAGR": 0.08660151588635645,
+      "Ann. Volatility": 0.12101264187257174,
+      "Sharpe": 0.7469483670046841,
+      "Sortino": 0.8514038606063241,
+      "Max Drawdown": -0.15572759429184238
+    },
+    "Random policy (mean of 100)": {
+      "Total Return": -0.13438995545001442,
+      "CAGR": -0.04727331237277621,
+      "Ann. Volatility": 0.1343277404080857,
+      "Sharpe": -0.2934037520918599,
+      "Sortino": -0.42891996375101166,
+      "Max Drawdown": -0.203191105128121
+    },
+    "Best asset (hindsight)": {
+      "Total Return": 0.8506205057282845,
+      "CAGR": 0.22941650035783545,
+      "Ann. Volatility": 0.27227466203972844,
+      "Sharpe": 0.8949701619028193,
+      "Sortino": 1.3463664225822534,
+      "Max Drawdown": -0.2050866650031363
+    }
+  },
+  "stats": {
+    "per_seed_vs_1N": {
+      "1": {
+        "sharpe_diff": -0.20909105357960456,
+        "ci_low": -0.8465371453128804,
+        "ci_high": 0.42735380994796096,
+        "prob_positive": 0.2629,
+        "n_boot": 10000
+      },
+      "13": {
+        "sharpe_diff": -0.17339410445867298,
+        "ci_low": -0.8519780106959577,
+        "ci_high": 0.5182819236587909,
+        "prob_positive": 0.3148,
+        "n_boot": 10000
+      },
+      "42": {
+        "sharpe_diff": 0.10357343316682832,
+        "ci_low": -0.42884919955098516,
+        "ci_high": 0.6449007021029404,
+        "prob_positive": 0.6488,
+        "n_boot": 10000
+      },
+      "7": {
+        "sharpe_diff": -0.559574932855113,
+        "ci_low": -1.179782530775997,
+        "ci_high": 0.07099426387141848,
+        "prob_positive": 0.0417,
+        "n_boot": 10000
+      },
+      "99": {
+        "sharpe_diff": -0.45482608972949007,
+        "ci_low": -1.1246601422093125,
+        "ci_high": 0.2228203255123437,
+        "prob_positive": 0.0962,
+        "n_boot": 10000
+      }
+    },
+    "pooled_vs_1N": {
+      "sharpe_diff": -0.2575182026536178,
+      "ci_low": -0.5368628676313673,
+      "ci_high": 0.02776291043063252,
+      "prob_positive": 0.0388,
+      "n_boot": 10000
+    },
+    "pooled_sentiment_vs_1N": {
+      "sharpe_diff": 0.09737120771758478,
+      "ci_low": -0.14045604489466065,
+      "ci_high": 0.34035073958191797,
+      "prob_positive": 0.7865,
+      "n_boot": 10000
+    },
+    "deflated_sharpe_best_seed": {
+      "sharpe_ann": 0.9148428094127933,
+      "expected_max_sharpe_ann": 0.4962630953636422,
+      "n_trials": 10,
+      "deflated_sharpe": 0.7643892676937893
+    },
+    "random_floor": {
+      "mean_sharpe": -0.27756614675301045,
+      "std_sharpe": 0.20983422271391663,
+      "n_runs": 100
+    },
+    "n_trials": 10
+  }
+}

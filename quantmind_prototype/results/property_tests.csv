@@ -1,0 +1,9 @@
+property,result
+1. No look-ahead in reward,passed
+"2. Valid simplex (weights >=0, sum to 1)",passed
+3. Position cap enforced (<=40%),passed
+4. Cost = rate x turnover exactly,passed
+5. Shapley matches closed form (<0.01),passed
+6. Shapley efficiency axiom,passed
+7. Sentiment pre-close no-leakage,passed
+8. Audit rejects corrupted rationales,passed

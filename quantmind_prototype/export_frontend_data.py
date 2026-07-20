@@ -1,10 +1,14 @@
-"""Export the trained prototype's real results to a JS file the frontend reads.
+"""Build the one locked dashboard payload, then write both surfaces from it.
 
-Produces ../frontend/data.js as `window.QM_DATA = {...}` so the dashboard is
-fully static (no server / no fetch / no CORS): just open index.html.
+Produces a single source of truth -- ``results/frontend_payload.json`` -- computed
+once from the chosen best-seed locked model, and writes ``../frontend/data.js``
+(``window.QM_DATA = {...}``) from it so the fully-static dashboard works with no
+server. The serving API (serve.py) reads the same JSON, so the static file and the
+API can never diverge (Work Order W7).
 """
 from __future__ import annotations
 
+import glob
 import json
 import os
 import sys
@@ -14,9 +18,26 @@ import pandas as pd
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from src import config, data, backtest, explain, metrics, train  # noqa: E402
+from stable_baselines3 import PPO  # noqa: E402
 
 FRONTEND_DIR = os.path.join(os.path.dirname(config.ROOT), "frontend")
+PAYLOAD_JSON = os.path.join(config.RESULTS_DIR, "frontend_payload.json")
 os.makedirs(FRONTEND_DIR, exist_ok=True)
+
+
+def _best_seed_model():
+    """The chosen best-seed run (highest Sharpe among the locked price runs), so
+    every surface reads one model. Falls back to the single saved model."""
+    best_path, best_sharpe = None, -1e9
+    for mp in glob.glob(os.path.join(config.RESULTS_DIR, "runs", "price_seed*", "metrics.json")):
+        with open(mp) as fh:
+            s = json.load(fh)["metrics"]["Sharpe"]
+        if s > best_sharpe:
+            best_sharpe, best_path = s, os.path.join(os.path.dirname(mp), "model")
+    if best_path:
+        print(f"[export] using best-seed locked model: {best_path} (Sharpe {best_sharpe:.3f})")
+        return PPO.load(best_path)
+    return train.load_agent()
 
 ASSET_META = {
     "AAPL": {"name": "Apple Inc.", "sector": "Technology"},
@@ -42,12 +63,13 @@ def main():
     te_feat, te_rets, _ = split["test"]
     tickers = list(te_rets.columns)
 
-    model = train.load_agent()
+    model = _best_seed_model()
 
     # --- Backtest series --------------------------------------------------
     agent_rets, weights = backtest.run_agent(model, te_feat, te_rets)
-    bh = backtest.buy_and_hold(te_rets).reindex(agent_rets.index).fillna(0.0)
-    best = backtest.best_single_asset(te_rets).reindex(agent_rets.index).fillna(0.0)
+    aligned_rets = backtest.align_to_tradeable(te_rets)
+    bh = backtest.buy_and_hold(aligned_rets)
+    best = backtest.best_single_asset(aligned_rets)
     best_name = best.name
 
     init = config.INITIAL_CASH
@@ -152,6 +174,11 @@ def main():
         "recommendations": recommendations,
         "rationale": rationale,
     }
+
+    # Locked source of truth: the API and the static file both read this.
+    with open(PAYLOAD_JSON, "w") as fh:
+        json.dump(out, fh, indent=2)
+    print(f"[export] wrote {PAYLOAD_JSON}")
 
     path = os.path.join(FRONTEND_DIR, "data.js")
     with open(path, "w") as fh:

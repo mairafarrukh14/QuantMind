@@ -10,6 +10,7 @@ transaction costs, minus a volatility penalty for risk-adjustment.
 State  (Box):  flattened [features (n_assets x n_features)] + [current weights (n_assets + 1)]
 Action (Box):  raw logits (n_assets + 1) -> softmax -> next-day target weights
 Reward:        log(value_t / value_{t-1}) - cost - RISK_PENALTY * rolling_vol
+               - TURNOVER_PENALTY * turnover
 """
 from __future__ import annotations
 
