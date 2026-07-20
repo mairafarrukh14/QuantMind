@@ -30,8 +30,21 @@
   Chart.defaults.plugins.tooltip.bodyColor = "#aeb7d0";
   const GRID = "rgba(255,255,255,.05)";
 
+  // ---- initial-amount rescale (CO-12) -------------------------------------
+  // Every £ figure in the backtest scales linearly with the starting cash
+  // (INITIAL_CASH = £100,000 in src/config.py); percentages, Sharpe, weights
+  // and allocations are scale-invariant. So the user's own amount is applied
+  // as a pure client-side multiplier over the one locked payload -- no
+  // retraining, no recomputation, honest about being a rescale of the same
+  // backtest rather than a new one.
+  const BASE_AMOUNT = D.meta.initial_cash;
+  let scaleFactor = 1;
+
   // ---- header / footer ----------------------------------------------------
-  document.getElementById("top-value").textContent = fmtMoney(D.kpis.portfolio_value);
+  function renderTopValue() {
+    document.getElementById("top-value").textContent = fmtMoney(D.kpis.portfolio_value * scaleFactor);
+  }
+  renderTopValue();
   document.getElementById("foot-source").textContent = D.meta.data_source;
   document.getElementById("equity-range").textContent = `${D.meta.test_start} → ${D.meta.test_end} · ${D.meta.test_days} trading days`;
   document.getElementById("perf-range").textContent = `${D.meta.test_start} → ${D.meta.test_end} · out-of-sample (${D.meta.test_days} days)`;
@@ -76,21 +89,24 @@
   };
   const ico = (k) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">${ICONS[k]}</svg>`;
   const k = D.kpis;
-  const kpis = [
-    { label: "Portfolio Value", icon: "wallet", val: fmtMoney(k.portfolio_value), delta: fmtSignedPct(k.total_return), up: k.total_return >= 0, note: "total return" },
-    { label: "Sharpe Ratio", icon: "trend", val: fmtNum(k.sharpe), delta: "+" + fmtNum(k.sharpe - D.metrics["Buy & Hold (1/N)"].Sharpe), up: true, note: "vs buy & hold" },
-    { label: "CAGR", icon: "shield", val: fmtPct(k.cagr), delta: fmtSignedPct(k.cagr - D.metrics["Buy & Hold (1/N)"].CAGR), up: true, note: "annualised" },
-    { label: "Max Drawdown", icon: "drop", val: fmtPct(k.max_drawdown), delta: "vol " + fmtPct(k.volatility), up: false, note: "peak-to-trough", neutral: true },
-  ];
-  document.getElementById("kpi-grid").innerHTML = kpis.map((c) => `
-    <div class="card kpi">
-      <div class="top"><span class="label">${c.label}</span><span class="ico">${ico(c.icon)}</span></div>
-      <div class="val num">${c.val}</div>
-      <div class="delta ${c.neutral ? "" : c.up ? "up" : "down"}">
-        ${c.neutral ? "" : `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">${c.up ? '<path d="M6 15l6-6 6 6"/>' : '<path d="M6 9l6 6 6-6"/>'}</svg>`}
-        <span class="num">${c.delta}</span><span class="muted">${c.note}</span>
-      </div>
-    </div>`).join("");
+  function renderKpis() {
+    const kpis = [
+      { label: "Portfolio Value", icon: "wallet", val: fmtMoney(k.portfolio_value * scaleFactor), delta: fmtSignedPct(k.total_return), up: k.total_return >= 0, note: "total return" },
+      { label: "Sharpe Ratio", icon: "trend", val: fmtNum(k.sharpe), delta: "+" + fmtNum(k.sharpe - D.metrics["Buy & Hold (1/N)"].Sharpe), up: true, note: "vs buy & hold" },
+      { label: "CAGR", icon: "shield", val: fmtPct(k.cagr), delta: fmtSignedPct(k.cagr - D.metrics["Buy & Hold (1/N)"].CAGR), up: true, note: "annualised" },
+      { label: "Max Drawdown", icon: "drop", val: fmtPct(k.max_drawdown), delta: "vol " + fmtPct(k.volatility), up: false, note: "peak-to-trough", neutral: true },
+    ];
+    document.getElementById("kpi-grid").innerHTML = kpis.map((c) => `
+      <div class="card kpi">
+        <div class="top"><span class="label">${c.label}</span><span class="ico">${ico(c.icon)}</span></div>
+        <div class="val num">${c.val}</div>
+        <div class="delta ${c.neutral ? "" : c.up ? "up" : "down"}">
+          ${c.neutral ? "" : `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">${c.up ? '<path d="M6 15l6-6 6 6"/>' : '<path d="M6 9l6 6 6-6"/>'}</svg>`}
+          <span class="num">${c.delta}</span><span class="muted">${c.note}</span>
+        </div>
+      </div>`).join("");
+  }
+  renderKpis();
 
   // =========================================================================
   //  EQUITY CHART
@@ -100,14 +116,16 @@
     const g = ctx.createLinearGradient(0, 0, 0, 300);
     g.addColorStop(0, hex + "55"); g.addColorStop(1, hex + "02"); return g;
   };
-  let equityChart;
+  let equityChart, lastCmp = "buyhold";
+  const scaled = (arr) => arr.map((v) => v * scaleFactor);
   function renderEquity(cmp) {
+    lastCmp = cmp;
     const ctx = document.getElementById("equityChart").getContext("2d");
     const cmpData = cmp === "best" ? eq.best : eq.buyhold;
     const cmpLabel = cmp === "best" ? `Best asset (${D.meta.best_asset_name.replace("Best asset ", "").replace(/[()]/g, "")})` : "Buy & Hold (1/N)";
     const ds = [
-      { label: "QuantMind PPO", data: eq.agent, borderColor: BRAND2, backgroundColor: mkGradient(ctx, "#2dd4bf"), fill: true, borderWidth: 2.6, tension: .25, pointRadius: 0, pointHoverRadius: 4 },
-      { label: cmpLabel, data: cmpData, borderColor: "#8b93a7", backgroundColor: "transparent", borderWidth: 1.6, borderDash: [5, 4], tension: .25, pointRadius: 0, pointHoverRadius: 4 },
+      { label: "QuantMind PPO", data: scaled(eq.agent), borderColor: BRAND2, backgroundColor: mkGradient(ctx, "#2dd4bf"), fill: true, borderWidth: 2.6, tension: .25, pointRadius: 0, pointHoverRadius: 4 },
+      { label: cmpLabel, data: scaled(cmpData), borderColor: "#8b93a7", backgroundColor: "transparent", borderWidth: 1.6, borderDash: [5, 4], tension: .25, pointRadius: 0, pointHoverRadius: 4 },
     ];
     if (equityChart) { equityChart.data.labels = eq.dates; equityChart.data.datasets = ds; equityChart.update(); }
     else equityChart = new Chart(ctx, {
@@ -132,6 +150,19 @@
       document.querySelectorAll("#equity-seg button").forEach((x) => x.classList.toggle("active", x === b));
       renderEquity(b.dataset.cmp);
     }));
+
+  // ---- initial-amount input: rescale every £ display, nothing retrained ---
+  const amountInput = document.getElementById("amount-input");
+  if (amountInput) {
+    amountInput.value = Math.round(BASE_AMOUNT);
+    amountInput.addEventListener("input", () => {
+      const v = parseFloat(amountInput.value);
+      scaleFactor = v > 0 ? v / BASE_AMOUNT : 1;
+      renderTopValue();
+      renderKpis();
+      renderEquity(lastCmp);
+    });
+  }
 
   // =========================================================================
   //  CURRENT ALLOCATION — donut + list
@@ -209,6 +240,8 @@
     </div>`).join("");
   document.querySelectorAll(".reco-card").forEach((card) =>
     card.querySelector(".reco-main").addEventListener("click", () => card.classList.toggle("open")));
+  // Open the top recommendation by default so its reasoning is visible at a glance.
+  document.querySelector(".reco-card")?.classList.add("open");
 
   // =========================================================================
   //  EXPLAINABILITY — SHAP bar chart
@@ -314,7 +347,21 @@
     stream.appendChild(el);
     stream.scrollTop = stream.scrollHeight;
   };
-  const send = (q) => { addMsg(q, "user"); setTimeout(() => addMsg(answerFor(q), "bot"), 320); };
+  // Prefer the live, audited backend (/api/chat) when a server is running;
+  // fall back to the local rule-based answerFor() for the no-server static
+  // build, so the two modes described in the report both work from this
+  // one file.
+  const send = (q) => {
+    addMsg(q, "user");
+    fetch("/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question: q }),
+    })
+      .then((r) => { if (!r.ok) throw new Error("no server"); return r.json(); })
+      .then((data) => addMsg(data.answer, "bot"))
+      .catch(() => setTimeout(() => addMsg(answerFor(q), "bot"), 320));
+  };
 
   const SUGGEST = [`Why did you overweight ${top.ticker}?`, "Did you beat the market?", "How risky is this portfolio?", "How do you make decisions?"];
   function bootChat() {

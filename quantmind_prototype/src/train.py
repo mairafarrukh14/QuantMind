@@ -23,7 +23,7 @@ def make_env(features, log_rets):
 
 
 def train_agent(train_features, train_rets, total_timesteps=config.TOTAL_TIMESTEPS,
-                seed=config.SEED, save_path=None, verbose=1):
+                seed=config.SEED, save_path=None, verbose=1, callback=None, save=True):
     venv = DummyVecEnv([make_env(train_features, train_rets)])
 
     model = PPO(
@@ -32,11 +32,12 @@ def train_agent(train_features, train_rets, total_timesteps=config.TOTAL_TIMESTE
         gamma=0.99, gae_lambda=0.95, clip_range=0.2, ent_coef=0.01,
         policy_kwargs=dict(net_arch=[128, 128]),
     )
-    model.learn(total_timesteps=total_timesteps, progress_bar=False)
+    model.learn(total_timesteps=total_timesteps, progress_bar=False, callback=callback)
 
-    if save_path is None:
-        save_path = os.path.join(config.MODELS_DIR, "ppo_quantmind")
-    model.save(save_path)
+    if save:
+        if save_path is None:
+            save_path = os.path.join(config.MODELS_DIR, "ppo_quantmind")
+        model.save(save_path)
     return model
 
 

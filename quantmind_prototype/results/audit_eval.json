@@ -1,0 +1,11 @@
+{
+  "n_decisions": 100,
+  "model": "llama3.2:1b",
+  "pass_rate": 0.54,
+  "pass_rate_first_try": 0.41,
+  "template_fallback_rate": 0.46,
+  "failure_taxonomy": {
+    "mentions unlisted driver": 53,
+    "references none of the supplied drivers": 64
+  }
+}

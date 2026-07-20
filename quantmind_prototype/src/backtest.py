@@ -71,7 +71,6 @@ def make_plots(strategies: dict[str, pd.Series], weights: pd.DataFrame, source: 
         eq = metrics.equity_curve(rets.values, initial=config.INITIAL_CASH)
         lw = 2.4 if "QuantMind" in name else 1.4
         ax.plot(rets.index, eq, label=name, linewidth=lw)
-    ax.set_title(f"QuantMind backtest — portfolio value on held-out test period\n(data source: {source})")
     ax.set_ylabel("Portfolio value (£)")
     ax.set_xlabel("Date")
     ax.legend(loc="upper left", fontsize=9)
@@ -83,7 +82,6 @@ def make_plots(strategies: dict[str, pd.Series], weights: pd.DataFrame, source: 
     # --- Allocation over time ---------------------------------------------
     fig, ax = plt.subplots(figsize=(9, 4))
     ax.stackplot(weights.index, weights.T.values, labels=weights.columns, alpha=0.85)
-    ax.set_title("QuantMind PPO — portfolio allocation over time")
     ax.set_ylabel("Weight")
     ax.set_xlabel("Date")
     ax.set_ylim(0, 1)
@@ -93,10 +91,26 @@ def make_plots(strategies: dict[str, pd.Series], weights: pd.DataFrame, source: 
     plt.close(fig)
 
 
+def align_to_tradeable(test_rets: pd.DataFrame) -> pd.DataFrame:
+    """The window every strategy is fairly compared over.
+
+    The agent needs day 0's observation just to make its first decision, so it
+    only ever earns returns from day 1 onward (its return series starts one day
+    later than ``test_rets``). Baselines are aligned to this same window and
+    recomputed fresh from it -- not carried forward with day-0 drift -- so every
+    strategy starts from a neutral position (agent: all cash; baselines: their
+    definitional start weights) at the same point in time. This is the one
+    alignment rule used everywhere a baseline is compared against the agent:
+    the main results table, the regenerated figures and the dashboard payload.
+    """
+    return test_rets.iloc[1:]
+
+
 def evaluate(model, test_features, test_rets, source="unknown"):
+    aligned_rets = align_to_tradeable(test_rets)
     agent_rets, weights = run_agent(model, test_features, test_rets)
-    bh = buy_and_hold(test_rets).reindex(agent_rets.index).fillna(0.0)
-    best = best_single_asset(test_rets).reindex(agent_rets.index).fillna(0.0)
+    bh = buy_and_hold(aligned_rets)
+    best = best_single_asset(aligned_rets)
 
     strategies = {agent_rets.name: agent_rets, bh.name: bh, best.name: best}
     table = metrics.summary_table(strategies, rf_daily=config.RISK_FREE_DAILY)

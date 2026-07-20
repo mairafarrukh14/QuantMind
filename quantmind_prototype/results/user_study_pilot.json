@@ -1,0 +1,20 @@
+{
+  "n": 3,
+  "sus_mean": 60.8,
+  "sus_min": 35.0,
+  "sus_max": 80.0,
+  "sus_scores": [
+    35.0,
+    67.5,
+    80.0
+  ],
+  "all_tasks_unaided_rate": 0.33,
+  "per_task_unaided_rate": [
+    0.33,
+    0.67,
+    0.67
+  ],
+  "n_build_A": 3,
+  "n_build_B": 0,
+  "note": "Pilot only (n=3); all sessions ran build A (explanations shown). No build-B (hidden) sessions were run in this pilot, so this cannot test the causal effect of explanations on trust -- that requires the full n>=15 study with both arms. Directional only."
+}

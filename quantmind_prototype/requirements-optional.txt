@@ -1,0 +1,8 @@
+# Optional: only needed to rebuild the sentiment pipeline from scratch
+# (fetch_news.py, build_sentiment.py). Not needed to reproduce training,
+# evaluation, the test suite or the dashboard, which read the locked
+# data/news/sentiment_cache.csv already committed to the repository.
+#
+# Install with:  pip install -r requirements.txt -r requirements-optional.txt
+transformers==5.13.1
+huggingface_hub==1.23.0

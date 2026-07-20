@@ -24,3 +24,9 @@ report/
 #   quantmind_prototype/data/prices.csv  (cached data, reproducibility)
 #   quantmind_prototype/models/*.zip (trained model, small)
 #   quantmind_prototype/results/*    (figures used by the report/demo)
+
+# ---- Packaging / personal working notes (not part of the project) ----
+quantmind_submission.zip
+SECTION_DRAFTS.md
+GIT_SETUP.md
+*.log

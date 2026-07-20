@@ -1,0 +1,78 @@
+{
+  "seeds": [
+    42,
+    1,
+    7,
+    13,
+    99
+  ],
+  "variant": "placebo",
+  "timesteps": 150000,
+  "runs": [
+    {
+      "run_id": "placebo_seed42",
+      "seed": 42,
+      "metrics": {
+        "Total Return": 0.19676106859730602,
+        "CAGR": 0.06212493176617917,
+        "Ann. Volatility": 0.16006699219995868,
+        "Sharpe": 0.4565204707678177,
+        "Sortino": 0.6758457912502465,
+        "Max Drawdown": -0.17700081612317706,
+        "Turnover": 0.03163228929042816
+      }
+    },
+    {
+      "run_id": "placebo_seed1",
+      "seed": 1,
+      "metrics": {
+        "Total Return": 0.5126848782334354,
+        "CAGR": 0.1489868659403526,
+        "Ann. Volatility": 0.18231637422288546,
+        "Sharpe": 0.8527930845666791,
+        "Sortino": 1.3010008047240993,
+        "Max Drawdown": -0.13315044029245013,
+        "Turnover": 0.0700262114405632
+      }
+    },
+    {
+      "run_id": "placebo_seed7",
+      "seed": 7,
+      "metrics": {
+        "Total Return": 0.5448973491259401,
+        "CAGR": 0.1571396113182022,
+        "Ann. Volatility": 0.1768901268896337,
+        "Sharpe": 0.9135728827507662,
+        "Sortino": 1.3360002467901069,
+        "Max Drawdown": -0.12698608944808978,
+        "Turnover": 0.08002064377069473
+      }
+    },
+    {
+      "run_id": "placebo_seed13",
+      "seed": 13,
+      "metrics": {
+        "Total Return": 0.5587191454075298,
+        "CAGR": 0.16060318817068509,
+        "Ann. Volatility": 0.14796920028294933,
+        "Sharpe": 1.0807234973399744,
+        "Sortino": 1.6443336195144762,
+        "Max Drawdown": -0.10570966391952788,
+        "Turnover": 0.05497483164072037
+      }
+    },
+    {
+      "run_id": "placebo_seed99",
+      "seed": 99,
+      "metrics": {
+        "Total Return": 0.6714610449607432,
+        "CAGR": 0.18812060885762283,
+        "Ann. Volatility": 0.18248729288435692,
+        "Sharpe": 1.035878495980613,
+        "Sortino": 1.5345605239193698,
+        "Max Drawdown": -0.1701212070576495,
+        "Turnover": 0.07144109904766083
+      }
+    }
+  ]
+}

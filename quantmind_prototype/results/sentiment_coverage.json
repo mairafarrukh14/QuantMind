@@ -1,0 +1,45 @@
+{
+  "source": "FNSPID (Dong et al. 2024, CC BY-NC-4.0)",
+  "full_span": {
+    "overall": 0.2628,
+    "per_asset": {
+      "AAPL": 0.18,
+      "MSFT": 0.1663,
+      "JPM": 0.1715,
+      "XOM": 0.485,
+      "JNJ": 0.311
+    },
+    "n_trading_days": 2495
+  },
+  "train_window": {
+    "overall": 0.2288,
+    "per_asset": {
+      "AAPL": 0.035,
+      "MSFT": 0.0,
+      "JPM": 0.2456,
+      "XOM": 0.4182,
+      "JNJ": 0.4452
+    },
+    "n_trading_days": 1743
+  },
+  "test_window": {
+    "overall": 0.3415,
+    "per_asset": {
+      "AAPL": 0.516,
+      "MSFT": 0.5519,
+      "JPM": 0.0,
+      "XOM": 0.6396,
+      "JNJ": 0.0
+    },
+    "n_trading_days": 752
+  },
+  "overall": 0.2628,
+  "per_asset": {
+    "AAPL": 0.18,
+    "MSFT": 0.1663,
+    "JPM": 0.1715,
+    "XOM": 0.485,
+    "JNJ": 0.311
+  },
+  "n_trading_days": 2495
+}

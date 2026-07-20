@@ -1,0 +1,27 @@
+{
+  "cap_check": {
+    "max_weight_per_asset": {
+      "AAPL": 0.4000000059604645,
+      "JNJ": 0.4000000059604645,
+      "JPM": 0.4000000059604645,
+      "MSFT": 0.4000000059604645,
+      "XOM": 0.4000000059604645
+    },
+    "cap": 0.4,
+    "violations": 0
+  },
+  "shapley_validation": {
+    "n_features": 8,
+    "n_perm": 2000,
+    "max_abs_error_vs_closed_form": 0.010822806517965244,
+    "efficiency_lhs_sum_phi": 1.8998885013421551,
+    "efficiency_rhs_fx_minus_base": 1.8904559245602877,
+    "efficiency_gap": 0.009432576781867485
+  },
+  "energy_analysis": {
+    "xom_mean_weight_2022_spike": 0.3112866282463074,
+    "xom_mean_weight_2023_onward": 0.20595639944076538,
+    "xom_mean_weight_full_test": 0.24598106741905212,
+    "ratio_spike_to_later": 1.5114200115203857
+  }
+}
