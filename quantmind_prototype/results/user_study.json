@@ -1,0 +1,35 @@
+{
+  "n": 10,
+  "sus_mean": 62.0,
+  "sus_min": 35.0,
+  "sus_max": 82.5,
+  "sus_scores": [
+    35.0,
+    67.5,
+    75.0,
+    42.5,
+    72.5,
+    82.5,
+    47.5,
+    75.0,
+    45.0,
+    77.5
+  ],
+  "all_tasks_unaided_rate": 0.0,
+  "per_task_unaided_rate": [
+    0.0,
+    0.8,
+    0.7
+  ],
+  "n_build_A": 10,
+  "n_build_B": 0,
+  "trust_pre_mean": 2.65,
+  "trust_post_mean": 3.23,
+  "trust_decreased": 0,
+  "understood_reason": {
+    "yes": 5,
+    "partial": 2,
+    "no": 3
+  },
+  "note": "Main study (n=10); all sessions ran build A (explanations shown). No build-B (hidden) sessions were run, so the causal effect of explanations on trust is not tested -- that requires both arms. Directional only. Separate from the three-person pilot in user_study_pilot.json; P-1095 and P-951f took part in both."
+}
