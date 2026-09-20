@@ -1,0 +1,15 @@
+{
+  "machine": "arm64 Darwin",
+  "python": "3.12.3",
+  "requests": 20,
+  "policy_load_s": 4.67,
+  "median_s": 0.05,
+  "p95_s": 0.12,
+  "max_s": 0.39,
+  "threshold_median_s": 5.0,
+  "latency_pass": true,
+  "test_suite_s": 10.3,
+  "test_suite_n": 20,
+  "test_suite_passed": true,
+  "test_summary": "============================== 20 passed in 7.38s =============================="
+}

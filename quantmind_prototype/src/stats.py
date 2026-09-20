@@ -1,4 +1,4 @@
-"""Honest-evaluation statistics (Work Order W4, contribution C4).
+"""Honest-evaluation statistics (contribution C4).
 
 Two tools that turn a single backtest number into a claim that survives scrutiny:
 

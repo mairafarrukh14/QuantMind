@@ -29,7 +29,7 @@ def main() -> int:
     agg = sentiment.build_sentiment_cache(trading_days)
     print(f"cached {len(agg):,} asset-day scores -> {sentiment.CACHE_CSV}", flush=True)
 
-    # Full-span, train-window and test-window coverage (CO-4): the ablation in
+    # Full-span, train-window and test-window coverage: the ablation in
     # Section 5.3 reads the test-window, per-asset breakdown specifically, so
     # that split -- not just the full-span average -- is what must be locked.
     split = data.train_test_split(prices, features, log_rets)

@@ -1,0 +1,180 @@
+{
+  "universe": "extended",
+  "scaling": [
+    {
+      "universe": "toy (8 inputs)",
+      "inputs": 8,
+      "n_perm": 64,
+      "closed_form_max_abs_err": 0.09157251286035557
+    },
+    {
+      "universe": "toy (8 inputs)",
+      "inputs": 8,
+      "n_perm": 500,
+      "closed_form_max_abs_err": 0.037510936438203746
+    },
+    {
+      "universe": "toy (8 inputs)",
+      "inputs": 8,
+      "n_perm": 2000,
+      "closed_form_max_abs_err": 0.01148910728732555
+    },
+    {
+      "universe": "toy (8 inputs)",
+      "inputs": 8,
+      "n_perm": 6000,
+      "closed_form_max_abs_err": 0.009781430313138356
+    },
+    {
+      "universe": "toy (8 inputs)",
+      "inputs": 8,
+      "check": "efficiency",
+      "abs_err": 3.096326417484363e-08
+    },
+    {
+      "universe": "5 assets",
+      "inputs": 41,
+      "n_perm": 64,
+      "closed_form_max_abs_err": 0.06583172437404433
+    },
+    {
+      "universe": "5 assets",
+      "inputs": 41,
+      "n_perm": 500,
+      "closed_form_max_abs_err": 0.026274904437261992
+    },
+    {
+      "universe": "5 assets",
+      "inputs": 41,
+      "n_perm": 2000,
+      "closed_form_max_abs_err": 0.03113062983224052
+    },
+    {
+      "universe": "5 assets",
+      "inputs": 41,
+      "n_perm": 6000,
+      "closed_form_max_abs_err": 0.021936534482936643
+    },
+    {
+      "universe": "5 assets",
+      "inputs": 41,
+      "check": "efficiency",
+      "abs_err": 1.626522205810943e-08
+    },
+    {
+      "universe": "30 assets",
+      "inputs": 241,
+      "n_perm": 64,
+      "closed_form_max_abs_err": 0.1585931501280695
+    },
+    {
+      "universe": "30 assets",
+      "inputs": 241,
+      "n_perm": 500,
+      "closed_form_max_abs_err": 0.05570829997463569
+    },
+    {
+      "universe": "30 assets",
+      "inputs": 241,
+      "n_perm": 2000,
+      "closed_form_max_abs_err": 0.022181437147321917
+    },
+    {
+      "universe": "30 assets",
+      "inputs": 241,
+      "n_perm": 6000,
+      "closed_form_max_abs_err": 0.019896493260164072
+    },
+    {
+      "universe": "30 assets",
+      "inputs": 241,
+      "check": "efficiency",
+      "abs_err": 1.783313550163257e-07
+    }
+  ],
+  "grouped": {
+    "model": "price_seed7",
+    "decisions_explained": 30,
+    "n_perm_per_decision": 64,
+    "background_size": 30,
+    "raw_inputs": 241,
+    "by_asset_top10": [
+      {
+        "asset": "WMT",
+        "mean_abs_shapley": 0.0045629376014559965
+      },
+      {
+        "asset": "NVDA",
+        "mean_abs_shapley": 0.00343463485824227
+      },
+      {
+        "asset": "DIS",
+        "mean_abs_shapley": 0.003415207985326366
+      },
+      {
+        "asset": "CAT",
+        "mean_abs_shapley": 0.003255986105303296
+      },
+      {
+        "asset": "AMZN",
+        "mean_abs_shapley": 0.0031393083607542
+      },
+      {
+        "asset": "JNJ",
+        "mean_abs_shapley": 0.003044652886620176
+      },
+      {
+        "asset": "NKE",
+        "mean_abs_shapley": 0.0030386992037810786
+      },
+      {
+        "asset": "SHW",
+        "mean_abs_shapley": 0.0029136766581868098
+      },
+      {
+        "asset": "ORCL",
+        "mean_abs_shapley": 0.0028376482846465714
+      },
+      {
+        "asset": "HD",
+        "mean_abs_shapley": 0.0028338897298903795
+      }
+    ],
+    "by_family": [
+      {
+        "family": "RSI",
+        "mean_abs_shapley": 0.03215308241792677
+      },
+      {
+        "family": "MACD trend",
+        "mean_abs_shapley": 0.02804303473123424
+      },
+      {
+        "family": "volatility",
+        "mean_abs_shapley": 0.00862556502576017
+      },
+      {
+        "family": "momentum",
+        "mean_abs_shapley": 0.0031905781718539568
+      },
+      {
+        "family": "price vs average",
+        "mean_abs_shapley": 0.00303825807980023
+      },
+      {
+        "family": "trend (moving averages)",
+        "mean_abs_shapley": 0.0023880999249916894
+      },
+      {
+        "family": "short-term return",
+        "mean_abs_shapley": 0.0015839409156122267
+      },
+      {
+        "family": "current holding (inertia)",
+        "mean_abs_shapley": 0.0012113414045191047
+      }
+    ],
+    "efficiency_gap_max_over_decisions": 0.006070941992220469,
+    "efficiency_gap_mean": 0.003843238604895305
+  }
+}

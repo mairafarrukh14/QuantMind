@@ -1,0 +1,133 @@
+{
+  "source": "cache",
+  "test_days": 751,
+  "variants": [
+    "price"
+  ],
+  "main_table": {
+    "PPO (mean)": {
+      "Total Return": 0.1730567328469202,
+      "CAGR": 0.05492080300840998,
+      "Ann. Volatility": 0.14847921179314888,
+      "Sharpe": 0.43387916415889993,
+      "Sortino": 0.6186609352957013,
+      "Max Drawdown": -0.22295740589125193,
+      "_sd": {
+        "Total Return": 0.037828661566605463,
+        "CAGR": 0.011422613732583364,
+        "Ann. Volatility": 0.0016730041222337948,
+        "Sharpe": 0.07224392885995568,
+        "Sortino": 0.10237318035154647,
+        "Max Drawdown": 0.010149899656405824
+      }
+    },
+    "PPO (best seed 7)": {
+      "Total Return": 0.21566627662511761,
+      "CAGR": 0.0677256645308566,
+      "Ann. Volatility": 0.1503813118819494,
+      "Sharpe": 0.510975613086008,
+      "Sortino": 0.7180679710228284,
+      "Max Drawdown": -0.22053509416484776,
+      "Turnover": 0.10734579712152481
+    },
+    "Buy & Hold (1/N)": {
+      "Total Return": 0.30026489416521973,
+      "CAGR": 0.09210319852813265,
+      "Ann. Volatility": 0.14646471314427947,
+      "Sharpe": 0.6748404297633639,
+      "Sortino": 0.9688493632536429,
+      "Max Drawdown": -0.20311087016942317
+    },
+    "Markowitz (train-fit)": {
+      "Total Return": 0.2630957108302183,
+      "CAGR": 0.08152658813070546,
+      "Ann. Volatility": 0.17571323782399942,
+      "Sharpe": 0.533892603597543,
+      "Sortino": 0.7688863509742156,
+      "Max Drawdown": -0.281176938713074
+    },
+    "12-1 momentum": {
+      "Total Return": 0.36241139385199905,
+      "CAGR": 0.10934719022768702,
+      "Ann. Volatility": 0.09315944234346492,
+      "Sharpe": 1.1606895613726398,
+      "Sortino": 1.415966869176698,
+      "Max Drawdown": -0.0917377631405234
+    },
+    "Random policy (mean of 100)": {
+      "Total Return": -0.23738866065278563,
+      "CAGR": -0.08692478797649505,
+      "Ann. Volatility": 0.14543447215806046,
+      "Sharpe": -0.5524636277898183,
+      "Sortino": -0.7869551108549979,
+      "Max Drawdown": -0.3184863880831474
+    },
+    "Best asset (hindsight)": {
+      "Total Return": 3.5721815245278146,
+      "CAGR": 0.6653523818072526,
+      "Ann. Volatility": 0.5528745485919829,
+      "Sharpe": 1.19543465894083,
+      "Sortino": 2.068283571801684,
+      "Max Drawdown": -0.6164349214122256
+    }
+  },
+  "stats": {
+    "per_seed_vs_1N": {
+      "1": {
+        "sharpe_diff": -0.32591105922911096,
+        "ci_low": -0.5830536893500803,
+        "ci_high": -0.07423228736756401,
+        "prob_positive": 0.005,
+        "n_boot": 10000
+      },
+      "13": {
+        "sharpe_diff": -0.3000009941026609,
+        "ci_low": -0.5705724818820038,
+        "ci_high": -0.03856506510422508,
+        "prob_positive": 0.0116,
+        "n_boot": 10000
+      },
+      "42": {
+        "sharpe_diff": -0.1759443238064312,
+        "ci_low": -0.45071861540243296,
+        "ci_high": 0.08986483644708552,
+        "prob_positive": 0.1018,
+        "n_boot": 10000
+      },
+      "7": {
+        "sharpe_diff": -0.16386483461065082,
+        "ci_low": -0.41073367443408176,
+        "ci_high": 0.07962675058107976,
+        "prob_positive": 0.0928,
+        "n_boot": 10000
+      },
+      "99": {
+        "sharpe_diff": -0.23908514534490993,
+        "ci_low": -0.48775810291771643,
+        "ci_high": 0.007068875106720127,
+        "prob_positive": 0.0291,
+        "n_boot": 10000
+      }
+    },
+    "pooled_vs_1N": {
+      "sharpe_diff": -0.24098249782656778,
+      "ci_low": -0.35524669862841524,
+      "ci_high": -0.12368995301003159,
+      "prob_positive": 0.0001,
+      "n_boot": 10000
+    },
+    "pooled_sentiment_vs_1N": null,
+    "deflated_sharpe_best_seed": {
+      "sharpe_ann": 0.5109755951527131,
+      "expected_max_sharpe_ann": 0.08615767620876862,
+      "n_trials": 5,
+      "deflated_sharpe": 0.7675264368761143
+    },
+    "random_floor": {
+      "mean_sharpe": -0.5453390390748054,
+      "std_sharpe": 0.08997151580671277,
+      "n_runs": 100
+    },
+    "n_trials": 5
+  }
+}

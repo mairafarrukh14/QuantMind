@@ -1,4 +1,4 @@
-"""Guardrailed language-model rationale generation (Work Order W6, contribution C3).
+"""Guardrailed language-model rationale generation (contribution C3).
 
 A small local model (via Ollama) rephrases the Shapley-grounded explanation into
 one friendly sentence, under a rephrase-only contract. Every generated sentence is

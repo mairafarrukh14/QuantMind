@@ -1,0 +1,59 @@
+{
+  "per_seed_vs_1N": {
+    "1": {
+      "sharpe_diff": -0.32591105922911096,
+      "ci_low": -0.5830536893500803,
+      "ci_high": -0.07423228736756401,
+      "prob_positive": 0.005,
+      "n_boot": 10000
+    },
+    "13": {
+      "sharpe_diff": -0.3000009941026609,
+      "ci_low": -0.5705724818820038,
+      "ci_high": -0.03856506510422508,
+      "prob_positive": 0.0116,
+      "n_boot": 10000
+    },
+    "42": {
+      "sharpe_diff": -0.1759443238064312,
+      "ci_low": -0.45071861540243296,
+      "ci_high": 0.08986483644708552,
+      "prob_positive": 0.1018,
+      "n_boot": 10000
+    },
+    "7": {
+      "sharpe_diff": -0.16386483461065082,
+      "ci_low": -0.41073367443408176,
+      "ci_high": 0.07962675058107976,
+      "prob_positive": 0.0928,
+      "n_boot": 10000
+    },
+    "99": {
+      "sharpe_diff": -0.23908514534490993,
+      "ci_low": -0.48775810291771643,
+      "ci_high": 0.007068875106720127,
+      "prob_positive": 0.0291,
+      "n_boot": 10000
+    }
+  },
+  "pooled_vs_1N": {
+    "sharpe_diff": -0.24098249782656778,
+    "ci_low": -0.35524669862841524,
+    "ci_high": -0.12368995301003159,
+    "prob_positive": 0.0001,
+    "n_boot": 10000
+  },
+  "pooled_sentiment_vs_1N": null,
+  "deflated_sharpe_best_seed": {
+    "sharpe_ann": 0.5109755951527131,
+    "expected_max_sharpe_ann": 0.08615767620876862,
+    "n_trials": 5,
+    "deflated_sharpe": 0.7675264368761143
+  },
+  "random_floor": {
+    "mean_sharpe": -0.5453390390748054,
+    "std_sharpe": 0.08997151580671277,
+    "n_runs": 100
+  },
+  "n_trials": 5
+}

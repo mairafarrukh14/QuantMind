@@ -12,9 +12,6 @@ Thumbs.db
 .idea/
 .vscode/
 
-# ---- Local tooling / editor state ----
-.claude/
-
 # ---- Report (kept local only, not published to GitHub) ----
 report/
 
@@ -25,10 +22,12 @@ report/
 #   quantmind_prototype/models/*.zip (trained model, small)
 #   quantmind_prototype/results/*    (figures used by the report/demo)
 
-# ---- Packaging / personal working notes (not part of the project) ----
-quantmind_submission.zip
-SECTION_DRAFTS.md
-GIT_SETUP.md
+# ---- Logs ----
 *.log
-PROJECT_PLAN.md
-quantmind_project.zip
+
+# ---- Study responses are not published (pseudonymised, deleted after marking) ----
+quantmind_prototype/study/responses.csv
+quantmind_prototype/study/responses_main.csv
+quantmind_prototype/study/responses_b.csv
+quantmind_prototype/study/persona_survey_responses.csv
+quantmind_prototype/study/pure human response/

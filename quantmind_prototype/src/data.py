@@ -91,6 +91,9 @@ def load_prices(force_refresh: bool = False) -> tuple[pd.DataFrame, str]:
         prices.to_csv(path)
         return prices, "yfinance"
 
+    if config.UNIVERSE != "core":
+        raise RuntimeError("price download failed for the extended universe; "
+                           "refusing to fall back to simulated prices")
     prices = _simulate_prices(config.TICKERS, config.START_DATE, config.END_DATE)
     prices.to_csv(path)
     return prices, "simulated"

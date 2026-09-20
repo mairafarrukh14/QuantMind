@@ -1,4 +1,4 @@
-"""Automated audit of language-model rationales (Work Order W6, contribution C3).
+"""Automated audit of language-model rationales (contribution C3).
 
 A local language model rephrases an explanation, but nothing it writes reaches
 the user until it passes this audit. The contract is *rephrase-only*: the model

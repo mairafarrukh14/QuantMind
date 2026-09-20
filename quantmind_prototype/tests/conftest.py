@@ -4,7 +4,7 @@ The suite is deliberately hermetic: every test builds its own small synthetic
 environment or synthetic function, so `pytest` runs in a few seconds on a fresh
 clone with no trained model, no network and no downloaded weights. The eight
 properties are the correctness claims the report makes, converted from assertion
-into evidence (Work Order W1).
+into evidence.
 
 On session end this file writes ``results/property_tests.json`` and
 ``results/property_tests.csv`` — the pass table Chapter 5 reads.
@@ -57,7 +57,7 @@ def synth_market(rng):
 # --------------------------------------------------------------------------- #
 #  Pass-table exporter — the artifact Chapter 5 reads                         #
 # --------------------------------------------------------------------------- #
-# Human-readable property name per test function, keyed by the Work Order's
+# Human-readable property name per test function, keyed by the report's
 # numbering so the exported table matches the report's eight-property table.
 PROPERTY_LABELS = {
     "test_no_lookahead": "1. No look-ahead in reward",

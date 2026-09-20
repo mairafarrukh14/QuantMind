@@ -1,4 +1,4 @@
-"""W4 walk-forward evaluation: does the agent hold up across market regimes?
+"""Walk-forward evaluation: does the agent hold up across market regimes?
 
 A single train/test split can flatter a model. Walk-forward retrains the agent on
 an expanding window and tests on the next unseen year, three times, under the same

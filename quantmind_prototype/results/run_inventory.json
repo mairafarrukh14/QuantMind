@@ -1,0 +1,65 @@
+{
+  "runs": [
+    {
+      "universe": "core",
+      "variant": "price",
+      "runs": 5,
+      "role": "candidate",
+      "window": "train 2015-2021, test 2022-2024",
+      "counts_toward_trials": true
+    },
+    {
+      "universe": "core",
+      "variant": "sentiment",
+      "runs": 5,
+      "role": "candidate",
+      "window": "train 2015-2021, test 2022-2024",
+      "counts_toward_trials": true
+    },
+    {
+      "universe": "core",
+      "variant": "placebo",
+      "runs": 5,
+      "role": "control",
+      "window": "train 2015-2021, test 2022-2024",
+      "counts_toward_trials": false
+    },
+    {
+      "universe": "extended",
+      "variant": "price",
+      "runs": 5,
+      "role": "candidate",
+      "window": "train 2015-2021, test 2022-2024",
+      "counts_toward_trials": true
+    },
+    {
+      "universe": "core",
+      "variant": "price (walk-forward refits)",
+      "runs": 15,
+      "role": "robustness refit",
+      "window": "three expanding windows",
+      "counts_toward_trials": false
+    }
+  ],
+  "candidate_trials": 15,
+  "candidate_breakdown": {
+    "core/price": 5,
+    "core/sentiment": 5,
+    "extended/price": 5
+  },
+  "core_best_price_seed_N10": {
+    "n_trials": 10,
+    "deflated_sharpe": 0.7643892676937893,
+    "expected_max_sharpe_ann": 0.4962630953636422
+  },
+  "core_best_price_seed_all_candidates": {
+    "n_trials": 15,
+    "deflated_sharpe": 0.7521760416991964,
+    "expected_max_sharpe_ann": 0.519001804001345
+  },
+  "extended_best_price_seed_all_candidates": {
+    "n_trials": 15,
+    "sharpe": 0.510975613086008,
+    "deflated_sharpe": 0.49449245720483437
+  }
+}

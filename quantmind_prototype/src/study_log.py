@@ -1,4 +1,4 @@
-"""User-study logging, A/B assignment and SUS scoring (Work Order W9).
+"""User-study logging, A/B assignment and SUS scoring.
 
 Keeps the study reproducible and its data honest: participants are identified by
 a random code only, assignment to the explanations-shown (A) or explanations-hidden

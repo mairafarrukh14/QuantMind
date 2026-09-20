@@ -1,4 +1,4 @@
-"""FinBERT news-sentiment pipeline (Work Order W2).
+"""FinBERT news-sentiment pipeline.
 
 Turns time-stamped headlines into one sentiment score per asset per day, in
 [-1, 1], that the RL agent can observe as an 8th feature. Two rules make it
@@ -41,12 +41,14 @@ CACHE_CSV = os.path.join(NEWS_DIR, "sentiment_cache.csv")
 # --------------------------------------------------------------------------- #
 @lru_cache(maxsize=1)
 def _finbert():
-    import torch  # noqa: F401  (imported for side-effect / availability)
+    import torch
     from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
     tok = AutoTokenizer.from_pretrained(MODEL_NAME)
     model = AutoModelForSequenceClassification.from_pretrained(MODEL_NAME)
     model.eval()
+    if torch.backends.mps.is_available():          # Apple-silicon GPU, same maths, faster
+        model.to("mps")
     lab = {v.lower(): k for k, v in model.config.id2label.items()}
     return tok, model, lab["positive"], lab["negative"]
 
@@ -64,7 +66,8 @@ def finbert_scores(texts: list[str], batch_size: int = 64) -> np.ndarray:
             batch = texts[start:start + batch_size]
             enc = tok(batch, return_tensors="pt", padding=True,
                       truncation=True, max_length=64)
-            probs = torch.softmax(model(**enc).logits, dim=-1).numpy()
+            enc = {k: v.to(model.device) for k, v in enc.items()}
+            probs = torch.softmax(model(**enc).logits, dim=-1).cpu().numpy()
             out.append(probs[:, i_pos] - probs[:, i_neg])
     return np.concatenate(out)
 
@@ -172,7 +175,7 @@ def attach_sentiment(features: np.ndarray, log_rets, tickers: list[str],
 
 def attach_sentiment_placebo(features: np.ndarray, log_rets, tickers: list[str],
                              cache_csv: str = CACHE_CSV, seed: int = 0) -> np.ndarray:
-    """Placebo control for the sentiment ablation (Work Order CO-17).
+    """Placebo control for the sentiment ablation (the placebo control).
 
     Attaches the same real sentiment scores as ``attach_sentiment``, but with
     each asset's time axis independently shuffled, so the *values* (and their

@@ -1,4 +1,4 @@
-"""Reference strategies for the evaluation (Work Order W4).
+"""Reference strategies for the evaluation.
 
 Every strategy is run through the same cost-aware simulator as the agent -- 0.1%
 on turnover, the same 40% concentration cap where it applies -- so the comparison

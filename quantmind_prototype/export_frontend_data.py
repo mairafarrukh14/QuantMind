@@ -4,7 +4,7 @@ Produces a single source of truth -- ``results/frontend_payload.json`` -- comput
 once from the chosen best-seed locked model, and writes ``../frontend/data.js``
 (``window.QM_DATA = {...}``) from it so the fully-static dashboard works with no
 server. The serving API (serve.py) reads the same JSON, so the static file and the
-API can never diverge (Work Order W7).
+API can never diverge.
 """
 from __future__ import annotations
 

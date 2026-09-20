@@ -1,4 +1,4 @@
-"""W8 - artifact reconciliation: one source of truth, three surfaces.
+"""artifact reconciliation: one source of truth, three surfaces.
 
 Grounds every headline number in the locked best-seed run, then checks that the
 dashboard payload and the evaluation summary agree with it. Resolves the named

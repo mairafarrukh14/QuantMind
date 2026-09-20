@@ -1,8 +1,8 @@
-"""CO-17 - placebo-sentiment control: is the sentiment ablation information or dynamics?
+"""Placebo-sentiment control: is the sentiment ablation information or dynamics?
 
 Section 5.3 concedes that five seeds cannot rule out the extra input dimension
 simply changing training dynamics rather than supplying information. This trains
-five seeds under the identical W3 protocol, with the sentiment feature's time axis
+five seeds under the identical protocol, with the sentiment feature's time axis
 shuffled per asset (attach_sentiment_placebo): same values, same coverage, same
 scale -- but no longer aligned to the market days they are supposed to describe.
 

@@ -1,0 +1,87 @@
+{
+  "n_A": 10,
+  "n_B": 10,
+  "builds_in_files": {
+    "A": [
+      "A"
+    ],
+    "B": [
+      "B"
+    ]
+  },
+  "sus": {
+    "mean_A": 62.0,
+    "sd_A": 17.472,
+    "mean_B": 51.25,
+    "sd_B": 18.68,
+    "cohens_d": -0.59,
+    "diff_B_minus_A": -10.75,
+    "ci95": [
+      -25.75,
+      4.25
+    ],
+    "perm_p": 0.205
+  },
+  "trust_change": {
+    "mean_A": 0.55,
+    "sd_A": 0.55,
+    "mean_B": 0.0,
+    "sd_B": 0.236,
+    "cohens_d": -1.3,
+    "diff_B_minus_A": -0.55,
+    "ci95": [
+      -0.9,
+      -0.2
+    ],
+    "perm_p": 0.017
+  },
+  "trust_post": {
+    "mean_A": 3.2,
+    "sd_A": 0.919,
+    "mean_B": 2.55,
+    "sd_B": 0.643,
+    "cohens_d": -0.82,
+    "diff_B_minus_A": -0.65,
+    "ci95": [
+      -1.3,
+      0.0
+    ],
+    "perm_p": 0.113
+  },
+  "unaided_share": {
+    "mean_A": 0.5,
+    "sd_A": 0.283,
+    "mean_B": 0.433,
+    "sd_B": 0.274,
+    "cohens_d": -0.24,
+    "diff_B_minus_A": -0.067,
+    "ci95": [
+      -0.3,
+      0.167
+    ],
+    "perm_p": 0.741
+  },
+  "per_task_unaided": {
+    "task1": {
+      "A": 0.0,
+      "B": 0.7
+    },
+    "task2": {
+      "A": 0.8,
+      "B": 0.6
+    },
+    "task3": {
+      "A": 0.7,
+      "B": 0.0
+    }
+  },
+  "understood_reason_yes": {
+    "A": 0.5,
+    "B": 0.0
+  },
+  "power": {
+    "min_detectable_d_80pct": 1.25,
+    "min_detectable_sus_points": 22.6,
+    "note": "two-sided alpha 0.05; the study is underpowered, read directionally"
+  }
+}

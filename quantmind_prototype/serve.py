@@ -1,4 +1,4 @@
-"""QuantMind serving backend (Work Order W7).
+"""QuantMind serving backend.
 
 A small FastAPI service that reads only the locked ``results/frontend_payload.json``
 -- nothing is trained or recomputed at request time -- and exposes it to the
@@ -12,6 +12,8 @@ Endpoints:
   GET  /api/allocations    per-day weights + current allocation
   GET  /api/explanations   global feature importance + per-holding drivers
   POST /api/chat           scope-restricted Q&A through the audited rationale layer
+  POST /api/recommend      advice for a user-supplied amount and as-of date
+  GET  /api/recommend/range  the dates a recommendation can be made for
   GET  /                   the static dashboard (reads the same payload)
 
 Run:  uvicorn serve:app --reload   (from the quantmind_prototype directory)
@@ -21,12 +23,12 @@ from __future__ import annotations
 import json
 import os
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
-from src import config, rationale
+from src import config, rationale, recommend
 
 PAYLOAD_JSON = os.path.join(config.RESULTS_DIR, "frontend_payload.json")
 FRONTEND_DIR = os.path.join(os.path.dirname(config.ROOT), "frontend")
@@ -34,6 +36,16 @@ FRONTEND_DIR = os.path.join(os.path.dirname(config.ROOT), "frontend")
 app = FastAPI(title="QuantMind API", version="1.0")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"],
                    allow_headers=["*"])
+
+
+@app.on_event("startup")
+def _warm_policy():
+    """Load the locked policy once at start-up so the first request is not slow.
+    A missing model must not stop the read-only dashboard endpoints from serving."""
+    try:
+        recommend.date_range()
+    except Exception as exc:  # noqa: BLE001
+        print(f"[serve] recommendation path unavailable: {exc}")
 
 
 def _payload() -> dict:
@@ -80,6 +92,30 @@ class ChatIn(BaseModel):
 @app.post("/api/chat")
 def chat(msg: ChatIn):
     return rationale.chat_answer(msg.question, _payload())
+
+
+class RecommendIn(BaseModel):
+    amount: float
+    as_of: str | None = None
+    max_weight: float | None = None
+    exclude: list[str] = []
+    explanations: bool = True
+
+
+@app.get("/api/recommend/range")
+def recommend_range():
+    return recommend.date_range()
+
+
+@app.post("/api/recommend")
+def recommend_endpoint(req: RecommendIn):
+    """Loads the locked policy and computes weights for the request. Nothing is
+    trained; invalid input is a 422 with a plain message."""
+    try:
+        return recommend.recommend(req.amount, req.as_of, req.max_weight,
+                                   req.exclude, req.explanations)
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc))
 
 
 # Mount the static dashboard last, at root, so /api/* takes precedence.

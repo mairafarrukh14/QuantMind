@@ -1,9 +1,9 @@
-"""W3 - controlled retraining: the ten locked runs the evaluation reads.
+"""controlled retraining: the ten locked runs the evaluation reads.
 
 Five seeds x two variants (sentiment OFF / ON), 150k PPO steps each, identical
 hyperparameters, same 2015-2021 train window. For every run we save the model
 zip, a metrics JSON and the per-day weight matrix, under results/runs/. These
-artifacts are locked: W4 evaluation and the dashboard read them and nothing is
+artifacts are locked: the evaluation and the dashboard read them and nothing is
 retrained afterwards.
 
 The fixed 150k budget is a deliberate, recorded choice - it holds the training

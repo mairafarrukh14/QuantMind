@@ -1,0 +1,25 @@
+{
+  "model": "price_seed42",
+  "n_decisions": 120,
+  "shapley_budget_evals": 2688,
+  "lime_budget_evals": 2688,
+  "shapley_area_mean": 0.046001118831185066,
+  "shapley_area_ci95": [
+    0.034824633798580924,
+    0.05772828559303178
+  ],
+  "lime_area_mean": 0.048006868065615015,
+  "lime_area_ci95": [
+    0.03672189199333495,
+    0.05953671812205726
+  ],
+  "shapley_minus_lime_mean": -0.0020057492344299458,
+  "shapley_minus_lime_ci95": [
+    -0.004516458587514659,
+    0.00039551068917939065
+  ],
+  "top3_overlap_mean": 2.308333333333333,
+  "top3_overlap_if_random": 0.21951219512195122,
+  "spearman_abs_attribution_mean": 0.6232621951219514,
+  "reproduces_locked_area": true
+}

@@ -27,7 +27,7 @@
   /* Text */
   --text: #eef2fb;
   --text-2: #aeb7d0;
-  --text-3: #6b7493;
+  --text-3: #7d86a6;
 
   --radius: 18px;
   --radius-sm: 12px;
@@ -323,3 +323,32 @@ body {
 .disclaimer b { color: var(--text-2); }
 
 .section-gap { margin-top: 20px; }
+
+/* ---- build-a-portfolio form and result ---- */
+.build-form { display:flex; flex-wrap:wrap; gap:16px; align-items:flex-end; margin:6px 0 14px; }
+.build-form label { display:flex; flex-direction:column; gap:6px; font-size:13px; color:var(--text-2, #aeb7d0); }
+.build-form input, .build-form select { background:rgba(255,255,255,.06); color:var(--text, #eef2fb); border:1px solid rgba(255,255,255,.18); border-radius:10px; padding:10px 12px; font-size:15px; min-width:150px; }
+.build-form input:focus-visible, .build-form select:focus-visible, .build-form button:focus-visible { outline:2px solid #2dd4bf; outline-offset:2px; }
+.build-form button { background:#2dd4bf; color:#04121a; border:0; border-radius:10px; padding:11px 22px; font-size:15px; font-weight:600; cursor:pointer; }
+.build-form button:disabled { opacity:.6; cursor:wait; }
+.b-exclude { border:0; padding:0; margin:0; font-size:13px; color:var(--text-2, #aeb7d0); }
+.b-exclude legend { padding:0 0 6px; }
+.b-exclude label { flex-direction:row; align-items:center; gap:6px; display:inline-flex; margin-right:12px; }
+.b-exclude input { min-width:0; }
+.notice { border-left:3px solid #fbbf24; padding:8px 12px; margin:8px 0; font-size:13px; background:rgba(251,191,36,.08); }
+.b-table { width:100%; border-collapse:collapse; margin-top:10px; }
+.b-table th, .b-table td { text-align:left; padding:10px 8px; border-bottom:1px solid rgba(255,255,255,.08); font-size:14px; }
+.b-table td.r, .b-table th.r { text-align:right; }
+.b-why { font-size:13px; color:var(--text-2, #aeb7d0); padding:4px 8px 10px; }
+
+/* Narrow screens: keep the performance table inside its card. */
+@media (max-width: 1000px) {
+  .table th, .table td { padding: 10px 6px; font-size: 12.5px; }
+  .table th { font-size: 10.5px; letter-spacing: .3px; }
+  .table .strat { gap: 6px; }
+}
+
+/* Larger-text option (a survey respondent group asked for bigger text). */
+body[data-large="1"] { zoom: 1.2; }
+#text-size { cursor: pointer; color: inherit; font: inherit; }
+#text-size:focus-visible { outline: 2px solid #2dd4bf; outline-offset: 2px; }

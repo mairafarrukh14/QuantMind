@@ -1,4 +1,4 @@
-"""W6 audit evaluation: the language-model rationale pass-rate and failure taxonomy.
+"""Audit evaluation: the language-model rationale pass-rate and failure taxonomy.
 
 Over >=100 sampled test decisions, we build the Shapley-grounded drivers for the
 agent's top holding, ask the local model to rephrase them, and audit the result.

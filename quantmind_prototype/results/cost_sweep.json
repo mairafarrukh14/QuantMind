@@ -1,0 +1,42 @@
+{
+  "universe": "core",
+  "buy_hold_sharpe": 0.811269376245965,
+  "trained_at_cost": 0.001,
+  "sweep": [
+    {
+      "cost": 0.0,
+      "agent_sharpe_mean": 0.6300626372694642,
+      "agent_sharpe_sd": 0.2540292605797562,
+      "seeds_beating_1N": 1,
+      "mean_daily_turnover": 0.05133430616670944
+    },
+    {
+      "cost": 0.0005,
+      "agent_sharpe_mean": 0.5913383229619416,
+      "agent_sharpe_sd": 0.25662695999123775,
+      "seeds_beating_1N": 1,
+      "mean_daily_turnover": 0.05133430616670944
+    },
+    {
+      "cost": 0.001,
+      "agent_sharpe_mean": 0.5526068220481974,
+      "agent_sharpe_sd": 0.2597938410432894,
+      "seeds_beating_1N": 1,
+      "mean_daily_turnover": 0.05133430616670944
+    },
+    {
+      "cost": 0.0025,
+      "agent_sharpe_mean": 0.43638572257212005,
+      "agent_sharpe_sd": 0.27249287444195464,
+      "seeds_beating_1N": 0,
+      "mean_daily_turnover": 0.05133430616670944
+    },
+    {
+      "cost": 0.005,
+      "agent_sharpe_mean": 0.24269348762524007,
+      "agent_sharpe_sd": 0.3027905478737754,
+      "seeds_beating_1N": 0,
+      "mean_daily_turnover": 0.05133430616670944
+    }
+  ]
+}

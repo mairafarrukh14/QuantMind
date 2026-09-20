@@ -1,0 +1,91 @@
+{
+  "threshold": 4.5,
+  "rows": [
+    {
+      "text": "--text",
+      "colour": "#eef2fb",
+      "background": "--bg-0",
+      "ratio": 17.53,
+      "passes_AA": true
+    },
+    {
+      "text": "--text",
+      "colour": "#eef2fb",
+      "background": "--bg-1",
+      "ratio": 16.89,
+      "passes_AA": true
+    },
+    {
+      "text": "--text-2",
+      "colour": "#aeb7d0",
+      "background": "--bg-0",
+      "ratio": 9.81,
+      "passes_AA": true
+    },
+    {
+      "text": "--text-2",
+      "colour": "#aeb7d0",
+      "background": "--bg-1",
+      "ratio": 9.45,
+      "passes_AA": true
+    },
+    {
+      "text": "--text-3",
+      "colour": "#7d86a6",
+      "background": "--bg-0",
+      "ratio": 5.46,
+      "passes_AA": true
+    },
+    {
+      "text": "--text-3",
+      "colour": "#7d86a6",
+      "background": "--bg-1",
+      "ratio": 5.26,
+      "passes_AA": true
+    },
+    {
+      "text": "--pos",
+      "colour": "#34d399",
+      "background": "--bg-0",
+      "ratio": 10.22,
+      "passes_AA": true
+    },
+    {
+      "text": "--pos",
+      "colour": "#34d399",
+      "background": "--bg-1",
+      "ratio": 9.85,
+      "passes_AA": true
+    },
+    {
+      "text": "--neg",
+      "colour": "#f87171",
+      "background": "--bg-0",
+      "ratio": 7.11,
+      "passes_AA": true
+    },
+    {
+      "text": "--neg",
+      "colour": "#f87171",
+      "background": "--bg-1",
+      "ratio": 6.84,
+      "passes_AA": true
+    },
+    {
+      "text": "--warn",
+      "colour": "#fbbf24",
+      "background": "--bg-0",
+      "ratio": 11.77,
+      "passes_AA": true
+    },
+    {
+      "text": "--warn",
+      "colour": "#fbbf24",
+      "background": "--bg-1",
+      "ratio": 11.34,
+      "passes_AA": true
+    }
+  ],
+  "all_pass": true,
+  "min_ratio": 5.26
+}

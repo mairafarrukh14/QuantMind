@@ -1,6 +1,6 @@
-"""W4 - extended evaluation suite: populates most of the evaluation chapter.
+"""extended evaluation suite: populates most of the evaluation chapter.
 
-Reads the locked W3 runs and the cached prices, then emits, all from disk with
+Reads the locked runs and the cached prices, then emits, all from disk with
 no retraining:
 
   * results/eval_main_table.csv  -- every strategy row: PPO mean +- sd and best
@@ -28,11 +28,18 @@ RUNS_DIR = os.path.join(OUT, "runs")
 COLS = ["Total Return", "CAGR", "Ann. Volatility", "Sharpe", "Sortino", "Max Drawdown"]
 
 
+# Only these variants are candidate strategies. Placebo runs are controls, not
+# candidates, so they never enter the trial count behind the deflated Sharpe.
+CANDIDATE_VARIANTS = ("price", "sentiment")
+
+
 def _load_runs():
     runs = []
     for path in sorted(glob.glob(os.path.join(RUNS_DIR, "*", "metrics.json"))):
         with open(path) as fh:
-            runs.append(json.load(fh))
+            run = json.load(fh)
+        if run["variant"] in CANDIDATE_VARIANTS:
+            runs.append(run)
     return runs
 
 

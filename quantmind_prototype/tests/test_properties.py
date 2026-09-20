@@ -1,4 +1,4 @@
-"""QuantMind property test suite (Work Order W1).
+"""QuantMind property test suite.
 
 Eight properties that turn the report's correctness claims into evidence:
 
@@ -11,8 +11,8 @@ Eight properties that turn the report's correctness claims into evidence:
   7. Sentiment no-leakage - a post-close headline never moves that day's score.
   8. Audit catches violations - corrupted rationales are rejected.
 
-Properties 7 and 8 are red-green against the sentiment pipeline (W2) and the
-rationale audit (W6): they auto-activate via ``importorskip`` the moment those
+Properties 7 and 8 are red-green against the sentiment pipeline and the
+rationale audit: they auto-activate via ``importorskip`` the moment those
 modules exist, and until then report as skipped in the exported pass table.
 """
 from __future__ import annotations
@@ -170,13 +170,13 @@ def test_shapley_efficiency(rng):
 
 
 # --------------------------------------------------------------------------- #
-#  7. Sentiment no-leakage  (red-green against W2)                            #
+#  7. Sentiment no-leakage  (red-green against the sentiment pipeline)     #
 # --------------------------------------------------------------------------- #
 def test_sentiment_no_leakage():
     """A headline time-stamped after day t's close must never change day t's
-    sentiment score. Auto-activates once the W2 pipeline exists."""
+    sentiment score. Auto-activates once the sentiment pipeline exists."""
     sentiment = pytest.importorskip(
-        "src.sentiment", reason="W2 sentiment pipeline not built yet")
+        "src.sentiment", reason="sentiment pipeline not built yet")
     import datetime as dt
 
     # A deterministic stub scorer keeps the test hermetic: it checks the leakage
@@ -196,13 +196,13 @@ def test_sentiment_no_leakage():
 
 
 # --------------------------------------------------------------------------- #
-#  8. Audit catches violations  (red-green against W6)                        #
+#  8. Audit catches violations  (red-green against the rationale audit)        #
 # --------------------------------------------------------------------------- #
 def test_audit_catches_violations():
     """The rationale audit rejects a sentence with a wrong sign, an invented
-    number, or an unlisted driver. Auto-activates once the W6 audit exists."""
+    number, or an unlisted driver. Auto-activates once the audit exists."""
     audit = pytest.importorskip(
-        "src.audit", reason="W6 rationale audit not built yet")
+        "src.audit", reason="rationale audit not built yet")
 
     drivers = [
         {"feature": "ret_5d", "sign": +1, "weight": 0.30},

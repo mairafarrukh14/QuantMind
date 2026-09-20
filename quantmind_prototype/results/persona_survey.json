@@ -1,0 +1,98 @@
+{
+  "n": 10,
+  "language": [
+    "English"
+  ],
+  "groups": {
+    "sara_like": 5,
+    "tom_like": 3,
+    "middle": 2
+  },
+  "invest_now_yes": 7,
+  "paid_for_advice_yes": 3,
+  "not_paid_reasons": {
+    "too expensive": 3,
+    "did not know how": 2,
+    "do not trust advisers": 1,
+    "did not need it": 1
+  },
+  "adviser_cost_estimate_gbp": {
+    "mean": 515.0,
+    "median": 375.0
+  },
+  "trust_tool_C1_mean": 2.5,
+  "act_no_reason_C2_mean": 1.5,
+  "act_plain_sentence_C3_mean": 3.7,
+  "act_signals_C4_mean": 3.6,
+  "D2_preference": {
+    "plain sentences": 4,
+    "both": 3,
+    "numbers and charts": 3
+  },
+  "devices": {
+    "phone": 5,
+    "laptop": 4,
+    "tablet": 1
+  },
+  "time_per_week": {
+    "5-30 min": 5,
+    "under 5 min": 4,
+    "over 30 min": 1
+  },
+  "vocabulary_mean_1to5": {
+    "diversification": 2.7,
+    "volatility": 2.6,
+    "sharpe": 2.1,
+    "rsi": 1.9,
+    "drawdown": 2.8
+  },
+  "access_needs": [
+    "small text is hard to read",
+    "would need larger text",
+    "reading level, prefer short sentences"
+  ],
+  "by_group": {
+    "middle": {
+      "n": 2,
+      "C1": 3.0,
+      "C2": 2.0,
+      "C3": 4.0,
+      "C4": 4.0,
+      "C3_minus_C2": 2.0,
+      "C4_minus_C3": 0.0,
+      "vocabulary_mean": 2.7,
+      "prefers_plain_sentences": 0,
+      "prefers_numbers_and_charts": 0,
+      "cost_named_as_barrier": 2
+    },
+    "sara_like": {
+      "n": 5,
+      "C1": 2.6,
+      "C2": 1.4,
+      "C3": 4.0,
+      "C4": 2.6,
+      "C3_minus_C2": 2.6,
+      "C4_minus_C3": -1.4,
+      "vocabulary_mean": 1.28,
+      "prefers_plain_sentences": 4,
+      "prefers_numbers_and_charts": 0,
+      "cost_named_as_barrier": 1
+    },
+    "tom_like": {
+      "n": 3,
+      "C1": 2.0,
+      "C2": 1.3333333333333333,
+      "C3": 3.0,
+      "C4": 5.0,
+      "C3_minus_C2": 1.6666666666666667,
+      "C4_minus_C3": 2.0,
+      "vocabulary_mean": 4.133333333333334,
+      "prefers_plain_sentences": 0,
+      "prefers_numbers_and_charts": 3,
+      "cost_named_as_barrier": 0
+    }
+  },
+  "plain_sentence_raises_willingness_all": 10,
+  "signals_beat_plain_sentence_all": 3,
+  "mention_text_size_or_reading_level": 3
+}

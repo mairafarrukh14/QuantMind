@@ -1,0 +1,64 @@
+{
+  "universe": "core",
+  "n_assets": 5,
+  "n_seeds": 5,
+  "regimes": [
+    {
+      "regime": "2022 drawdown",
+      "days": 250,
+      "agent_sharpe_mean": -0.26409603262779047,
+      "agent_sharpe_sd": 0.48384783861935443,
+      "agent_sharpes": [
+        -0.1301876988870216,
+        -0.6831114727622385,
+        0.5043384680474415,
+        -0.6392424551878099,
+        -0.3722770043493238
+      ],
+      "Buy & Hold (1/N)": 0.25289209400463264,
+      "Markowitz (train-fit)": -0.7126125402075697,
+      "12-1 momentum": 0.0,
+      "seeds_beating_1N": 1,
+      "agent_total_return_mean": -0.08487032251911249,
+      "1N_total_return": 0.031649147304052105
+    },
+    {
+      "regime": "2023 recovery",
+      "days": 250,
+      "agent_sharpe_mean": 1.5838755149767272,
+      "agent_sharpe_sd": 0.4846544528773482,
+      "agent_sharpes": [
+        1.8567154793536025,
+        2.0727143855155212,
+        0.7948162728811997,
+        1.6373484810368073,
+        1.5577829560965055
+      ],
+      "Buy & Hold (1/N)": 1.2045314302699095,
+      "Markowitz (train-fit)": 2.413132268790155,
+      "12-1 momentum": 0.7022622010208323,
+      "seeds_beating_1N": 4,
+      "agent_total_return_mean": 0.2460600770591928,
+      "1N_total_return": 0.16110498950299768
+    },
+    {
+      "regime": "2024 trend",
+      "days": 251,
+      "agent_sharpe_mean": 0.962215088213093,
+      "agent_sharpe_sd": 0.7709633579058893,
+      "agent_sharpes": [
+        0.5706912295249694,
+        1.8237082800959954,
+        1.77314516102005,
+        0.27639293640807566,
+        0.3671378340163735
+      ],
+      "Buy & Hold (1/N)": 1.56097234448557,
+      "Markowitz (train-fit)": 1.7711160297302109,
+      "12-1 momentum": 1.2092120648532727,
+      "seeds_beating_1N": 2,
+      "agent_total_return_mean": 0.13213355223422543,
+      "1N_total_return": 0.182501861063755
+    }
+  ]
+}

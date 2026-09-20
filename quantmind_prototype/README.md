@@ -44,16 +44,41 @@ pip install -r requirements-optional.txt
 ## Reproduce every result (from locked artifacts)
 
 ```bash
-python -m pytest                     # W1: 8 property tests (pass table -> results/)
-python run_experiments_w3.py         # W3: 10 locked runs (5 seeds x sentiment off/on)
-python run_experiments_placebo.py    # CO-17: 5 seeds, sentiment date-shuffled (control)
-python run_evaluation.py             # W4: main table, baselines, bootstrap CI, DSR
-python run_faithfulness.py           # W5: explanation deletion test + figure
-python run_walkforward.py            # Table 5: three-window walk-forward retraining
-python run_audit_eval.py             # W6: LLM audit pass-rate (needs Ollama)
-python run_reconcile.py              # W8: one source of truth, zero mismatches
+python -m pytest                     # test suite: 8 property tests + recommendation and study-analysis tests
+python run_experiments_w3.py         # 10 locked runs (5 seeds x sentiment off/on)
+python run_experiments_placebo.py    # 5 seeds, sentiment dates shuffled (control)
+python run_evaluation.py             # main table, baselines, bootstrap CI, deflated Sharpe
+python run_regimes_costs.py          # per-year regime split and transaction-cost sweep
+python run_faithfulness.py           # explanation deletion test + figure
+python run_walkforward.py            # three-window walk-forward retraining
+python run_audit_eval.py             # LLM audit pass-rate (needs Ollama)
+python run_reconcile.py              # one source of truth, zero mismatches
 python export_frontend_data.py       # build the locked dashboard payload + data.js
+python run_study_arms.py             # user-study arm comparison (needs the local response files, which are not published)
+python run_persona_survey.py         # persona-survey summary (needs the local survey file, not published)
+python run_scaling_check.py          # Shapley error by input dimension (QM_UNIVERSE=extended adds grouped attribution)
+python run_faithfulness_comparison.py  # deletion area with interval, against a from-scratch LIME
+python run_inventory.py              # every trained run and the deflated-Sharpe trial count
+python run_latency.py                # recommendation latency and test-suite time
+python run_contrast_check.py         # WCAG contrast of the dashboard colours
+python run_report_numbers.py         # report numbers, generated from the locked artifacts
+python run_report_tables.py          # report tables, generated from the locked artifacts
 ```
+
+### Extended universe
+
+Set `QM_UNIVERSE=extended` to run the same scripts on the 30-asset, all-sector
+universe (29 US large caps plus one Japan ETF, with a 2/N concentration cap). Its
+data and results live under `data/extended/` and `results/extended/`, so the core
+five-asset artifacts are never touched:
+
+```bash
+QM_UNIVERSE=extended python run_experiments_w3.py
+QM_UNIVERSE=extended python run_walkforward.py
+QM_UNIVERSE=extended python run_evaluation.py
+QM_UNIVERSE=extended python run_regimes_costs.py
+```
+
 
 Training is deterministic (fixed seeds, cached data, pinned versions); nothing is
 retrained after `run_experiments_w3.py`, and every table/figure/endpoint reads the
@@ -73,6 +98,20 @@ cd ../frontend && python -m http.server 8080   # then open http://localhost:8080
 # macOS shortcut:   open "../frontend/index.html"
 # Windows shortcut: start "" "..\frontend\index.html"
 ```
+
+### Build a portfolio (live advice)
+
+With the server running, the **Build a portfolio** screen takes an amount and an
+as-of date and returns a suggested split, computed at request time from the locked
+best-seed policy (nothing is trained). It starts from an all-cash portfolio and
+flags dates that fall inside the training period. The same path is available as
+`POST /api/recommend`; `GET /api/recommend/range` gives the dates it accepts.
+
+### User-study builds
+
+`index.html` is build A (explanations shown). `index.html?build=B` is build B, the
+same dashboard with every explanation surface removed, used for the study's
+comparison arm. `study/arm_b_session_guide.md` describes running a session.
 
 ## Tests
 

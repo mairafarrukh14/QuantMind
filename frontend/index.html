@@ -30,11 +30,15 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
         Dashboard
       </div>
+      <div class="nav-item" data-view="build">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>
+        Build a portfolio
+      </div>
       <div class="nav-item" data-view="recommendations">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
         Recommendations
       </div>
-      <div class="nav-item" data-view="explainability">
+      <div class="nav-item xai-only" data-view="explainability">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="12" y="7" width="3" height="10"/><rect x="17" y="13" width="3" height="4"/></svg>
         Explainability
       </div>
@@ -69,6 +73,7 @@
       </div>
       <div class="topbar-right">
         <span class="pill"><span class="dot"></span> Backtested model</span>
+        <button type="button" class="pill" id="text-size" aria-pressed="false">Larger text</button>
         <label class="pill amount-pill" title="Rescales every £ figure on this page proportionally. The backtest itself is not re-run.">
           Starting amount £<input type="number" id="amount-input" min="100" step="100">
         </label>
@@ -112,20 +117,46 @@
       </div>
     </section>
 
+    <!-- ===== BUILD A PORTFOLIO ===== -->
+    <section class="view" id="view-build">
+      <div class="card card-pad">
+        <div class="card-head"><div><h3>Build your portfolio</h3><div class="sub">Enter an amount and a date. QuantMind suggests how to split it across the five companies.</div></div></div>
+        <form id="build-form" class="build-form">
+          <label for="b-amount">Amount to invest (£)
+            <input type="number" id="b-amount" min="100" step="100" value="5000" required>
+          </label>
+          <label for="b-date">Advice as of
+            <input type="date" id="b-date">
+          </label>
+          <label for="b-cap">Most in any one company
+            <select id="b-cap">
+              <option value="0.4">40% (default)</option>
+              <option value="0.3">30%</option>
+              <option value="0.2">20%</option>
+            </select>
+          </label>
+          <fieldset class="b-exclude"><legend>Leave out</legend><span id="b-exclude"></span></fieldset>
+          <button type="submit" id="b-go">Get advice</button>
+        </form>
+        <p class="disclaimer" id="build-status" role="status" aria-live="polite"></p>
+        <div id="build-result"></div>
+      </div>
+    </section>
+
     <!-- ===== RECOMMENDATIONS ===== -->
     <section class="view" id="view-recommendations">
-      <div class="rationale" id="rationale-banner">
+      <div class="rationale xai-only" id="rationale-banner">
         <div class="ai"><svg viewBox="0 0 24 24" fill="none" stroke="#04121a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v1a4 4 0 0 0 0 8v1a4 4 0 0 0 8 0v-1a4 4 0 0 0 0-8V6a4 4 0 0 0-4-4z"/></svg></div>
         <div class="body"><div class="h">QuantMind's rationale for today</div><div class="txt" id="rationale-text"></div></div>
       </div>
       <div class="card card-pad section-gap">
-        <div class="card-head"><div><h3>Today's Recommendations</h3><div class="sub">Click any holding to see why the agent chose it</div></div><span class="card-tag">Shapley-explained</span></div>
+        <div class="card-head"><div><h3>Today's Recommendations</h3><div class="sub" id="reco-sub">Click any holding to see why the agent chose it</div></div><span class="card-tag" id="reco-tag">Shapley-explained</span></div>
         <div class="reco" id="reco-list"></div>
       </div>
     </section>
 
     <!-- ===== EXPLAINABILITY ===== -->
-    <section class="view" id="view-explainability">
+    <section class="view xai-only" id="view-explainability">
       <div class="grid cols-2">
         <div class="card card-pad">
           <div class="card-head"><div><h3>Global Feature Importance</h3><div class="sub">Mean |Shapley value| across decisions</div></div></div>

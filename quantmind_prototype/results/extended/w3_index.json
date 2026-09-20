@@ -1,0 +1,85 @@
+{
+  "seeds": [
+    42,
+    1,
+    7,
+    13,
+    99
+  ],
+  "variants": [
+    "price"
+  ],
+  "timesteps": 150000,
+  "runs": [
+    {
+      "run_id": "price_seed42",
+      "variant": "price",
+      "seed": 42,
+      "metrics": {
+        "Total Return": 0.20496400094841327,
+        "CAGR": 0.06456224616223905,
+        "Ann. Volatility": 0.14707806208575536,
+        "Sharpe": 0.4988960986796568,
+        "Sortino": 0.7209591240839986,
+        "Max Drawdown": -0.2104018206282508,
+        "Turnover": 0.11214275658130646
+      }
+    },
+    {
+      "run_id": "price_seed1",
+      "variant": "price",
+      "seed": 1,
+      "metrics": {
+        "Total Return": 0.1281310367996218,
+        "CAGR": 0.04128444814908239,
+        "Ann. Volatility": 0.14682772775141506,
+        "Sharpe": 0.3489293714355106,
+        "Sortino": 0.4978351925752531,
+        "Max Drawdown": -0.22318207686710703,
+        "Turnover": 0.11139777302742004
+      }
+    },
+    {
+      "run_id": "price_seed7",
+      "variant": "price",
+      "seed": 7,
+      "metrics": {
+        "Total Return": 0.21566627662511761,
+        "CAGR": 0.0677256645308566,
+        "Ann. Volatility": 0.1503813118819494,
+        "Sharpe": 0.510975613086008,
+        "Sortino": 0.7180679710228284,
+        "Max Drawdown": -0.22053509416484776,
+        "Turnover": 0.10734579712152481
+      }
+    },
+    {
+      "run_id": "price_seed13",
+      "variant": "price",
+      "seed": 13,
+      "metrics": {
+        "Total Return": 0.14352604120959445,
+        "CAGR": 0.04603114686825527,
+        "Ann. Volatility": 0.1501093014828075,
+        "Sharpe": 0.3748394348480315,
+        "Sortino": 0.5351817436112857,
+        "Max Drawdown": -0.23869141744043312,
+        "Turnover": 0.10689719766378403
+      }
+    },
+    {
+      "run_id": "price_seed99",
+      "variant": "price",
+      "seed": 99,
+      "metrics": {
+        "Total Return": 0.17299630865185378,
+        "CAGR": 0.0550005093316166,
+        "Ann. Volatility": 0.14799965576381713,
+        "Sharpe": 0.4357553027452927,
+        "Sortino": 0.6212606451851406,
+        "Max Drawdown": -0.22197662035562085,
+        "Turnover": 0.11364636570215225
+      }
+    }
+  ]
+}

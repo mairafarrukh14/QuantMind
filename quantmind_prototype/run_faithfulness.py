@@ -1,4 +1,4 @@
-"""W5 - explanation faithfulness by deletion (contribution C2).
+"""explanation faithfulness by deletion (contribution C2).
 
 Turns "the Shapley code is validated" into "the explanations are faithful". For
 a sample of (day, holding) decisions we rank the input features by their Shapley

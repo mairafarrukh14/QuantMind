@@ -1,4 +1,4 @@
-"""CO-17 analysis: does the placebo confirm information or dynamics?
+"""Placebo analysis: does the placebo confirm information or dynamics?
 
 Reads the five locked placebo runs (results/runs/placebo_seed*) alongside the
 price-only and real-sentiment runs already evaluated by run_evaluation.py, and
