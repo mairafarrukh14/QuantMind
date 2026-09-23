@@ -145,6 +145,8 @@
           <span class="num">${c.delta}</span><span class="muted">${c.note}</span>
         </div>
       </div>`).join("");
+    document.getElementById("kpi-note").textContent =
+      `Best of ${k.n_seeds} training seeds; across all ${k.n_seeds} the average Sharpe is ${fmtNum(k.mean_sharpe_5seed)}.`;
   }
   renderKpis();
 
@@ -331,7 +333,7 @@
         ${cols.map((c) => cell(c[0])).join("")}</tr>`;
     }).join("")}</tbody>`;
   document.getElementById("perf-note").innerHTML =
-    `Average daily turnover ${fmtPct(D.kpis.avg_turnover)} · ${(D.meta.transaction_cost * 100).toFixed(1)}% transaction cost · trained ${D.meta.timesteps.toLocaleString()} steps. "Best asset" is chosen with hindsight and is not investable.`;
+    `Best of ${k.n_seeds} training seeds; across all ${k.n_seeds} the average Sharpe is ${fmtNum(k.mean_sharpe_5seed)}. Average daily turnover ${fmtPct(D.kpis.avg_turnover)} · ${(D.meta.transaction_cost * 100).toFixed(1)}% transaction cost · trained ${D.meta.timesteps.toLocaleString()} steps. "Best asset" is chosen with hindsight and is not investable.`;
 
   new Chart(document.getElementById("riskReturn").getContext("2d"), {
     type: "scatter",
@@ -374,7 +376,7 @@
     if (/(risk|drawdown|volatil|safe|lose)/.test(q))
       return `The portfolio's annualised volatility is <b>${fmtPct(k.volatility)}</b> with a worst peak-to-trough drawdown of <b>${fmtPct(k.max_drawdown)}</b> over the test period.`;
     if (/(beat|market|benchmark|buy.?and.?hold|outperform|better|sharpe|sortino|ratio)/.test(q))
-      return `Over the backtest period the portfolio returned <b>${fmtSignedPct(k.total_return)}</b> vs <b>${fmtSignedPct(bh["Total Return"])}</b> for an equal-weight buy-and-hold. This is a historical backtest, not a guarantee of future performance.`;
+      return `This screen shows the best of ${k.n_seeds} training seeds: it returned <b>${fmtSignedPct(k.total_return)}</b> vs <b>${fmtSignedPct(bh["Total Return"])}</b> for an equal-weight buy-and-hold, with a Sharpe ratio of <b>${k.sharpe.toFixed(2)}</b> vs <b>${bh.Sharpe.toFixed(2)}</b>. Across all ${k.n_seeds} seeds the average Sharpe is <b>${k.mean_sharpe_5seed.toFixed(2)}</b>, below buy-and-hold, so this is not a reliable edge.`;
     return `I'm QuantMind. Your portfolio is worth <b>${fmtMoney(k.portfolio_value)}</b> (<b>${fmtSignedPct(k.total_return)}</b>) and my biggest position is <b>${top.ticker}</b> at <b>${fmtPct(top.weight)}</b>. You can ask me about a company's weight, the performance, or the risk.`;
   };
   const answerFor = (qRaw) => {
@@ -389,11 +391,11 @@
     if (/(risk|drawdown|volatil|safe|lose)/.test(q))
       return `The portfolio's annualised volatility is <b>${fmtPct(k.volatility)}</b> with a worst peak-to-trough drawdown of <b>${fmtPct(k.max_drawdown)}</b> over the test period. A 40% per-asset cap enforces diversification, and a turnover penalty keeps trading low (avg <b>${fmtPct(k.avg_turnover)}</b>/day), which controls cost and risk.`;
     if (/(beat|market|benchmark|buy.?and.?hold|outperform|better)/.test(q))
-      return `Over the out-of-sample period I returned <b>${fmtSignedPct(k.total_return)}</b> vs <b>${fmtSignedPct(bh["Total Return"])}</b> for an equal-weight buy-and-hold, with a higher Sharpe ratio (<b>${k.sharpe.toFixed(2)}</b> vs <b>${bh.Sharpe.toFixed(2)}</b>) at similar volatility. So yes — better risk-adjusted returns, though not a guarantee of future performance.`;
+      return `This is the best of my ${k.n_seeds} training seeds: over the out-of-sample period it returned <b>${fmtSignedPct(k.total_return)}</b> vs <b>${fmtSignedPct(bh["Total Return"])}</b> for an equal-weight buy-and-hold, with a Sharpe ratio of <b>${k.sharpe.toFixed(2)}</b> vs <b>${bh.Sharpe.toFixed(2)}</b>. But across all ${k.n_seeds} seeds the average Sharpe is <b>${k.mean_sharpe_5seed.toFixed(2)}</b>, below buy-and-hold — so I don't have a reliable edge, only a good seed.`;
     if (/(how|explain|work|decide|why|driver|shap|feature)/.test(q))
       return `Each decision is explained with <b>Shapley-value attribution</b>: I measure how every market signal moves the allocation. Right now my decisions lean most on <b>position inertia</b> (avoiding needless trades), then <b>MACD trend</b> and <b>RSI</b> signals. Head to the Explainability tab for the full ranking.`;
     if (/(sharpe|sortino|ratio)/.test(q))
-      return `My Sharpe ratio is <b>${k.sharpe.toFixed(2)}</b> and Sortino is <b>${k.sortino.toFixed(2)}</b>, both above the buy-and-hold baseline (${bh.Sharpe.toFixed(2)} / ${bh.Sortino.toFixed(2)}). Sortino is higher because it only penalises downside volatility.`;
+      return `This best-seed run has a Sharpe ratio of <b>${k.sharpe.toFixed(2)}</b> and Sortino of <b>${k.sortino.toFixed(2)}</b>, both above the buy-and-hold baseline (${bh.Sharpe.toFixed(2)} / ${bh.Sortino.toFixed(2)}). That is one seed, not the typical result: across all ${k.n_seeds} training seeds the average Sharpe is <b>${k.mean_sharpe_5seed.toFixed(2)}</b>, below buy-and-hold.`;
     return `I'm QuantMind — an explainable RL portfolio agent. Your portfolio is worth <b>${fmtMoney(k.portfolio_value)}</b> (<b>${fmtSignedPct(k.total_return)}</b>), my biggest position is <b>${top.ticker}</b> at <b>${fmtPct(top.weight)}</b>, and every recommendation comes with a plain-English reason. Try asking why I chose a specific stock, or how risky the portfolio is.`;
   };
 

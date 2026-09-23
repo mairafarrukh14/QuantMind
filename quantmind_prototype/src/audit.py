@@ -52,15 +52,21 @@ class AuditResult:
 
 
 def _features_in(text: str) -> set[str]:
-    """Which known features are mentioned in ``text`` (longest phrases win, so
-    'trend strength' is read as MACD rather than the generic 'trend')."""
+    """Which known features are mentioned in ``text``.
+
+    Phrases are matched longest-first and consumed as they match, so a phrase
+    that is a substring of another feature's phrase -- 'trend' inside MACD's
+    'trend strength' -- cannot also register the other feature once the longer
+    phrase has already claimed that text.
+    """
     t = text.lower()
-    found = set()
-    for feat, phrases in FEATURE_SYNONYMS.items():
-        for p in phrases:
-            if p in t:
-                found.add(feat)
-                break
+    found: set[str] = set()
+    pairs = sorted(((p, f) for f, ps in FEATURE_SYNONYMS.items() for p in ps),
+                   key=lambda pf: len(pf[0]), reverse=True)
+    for p, f in pairs:
+        if p in t:
+            found.add(f)
+            t = t.replace(p, " ")
     return found
 
 

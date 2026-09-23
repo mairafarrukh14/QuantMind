@@ -31,8 +31,12 @@
     {
       "property": "8. Audit rejects corrupted rationales",
       "result": "passed"
+    },
+    {
+      "property": "9. Template sentence passes the audit for every driver set",
+      "result": "passed"
     }
   ],
-  "n_passed": 8,
-  "n_total": 8
+  "n_passed": 9,
+  "n_total": 9
 }

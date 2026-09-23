@@ -47,7 +47,9 @@ window.QM_DATA = {
     "cagr": 0.1442131903,
     "volatility": 0.1615365603,
     "sortino": 1.3418714595,
-    "avg_turnover": 0.04832254350185394
+    "avg_turnover": 0.04832254350185394,
+    "mean_sharpe_5seed": 0.5526068220481974,
+    "n_seeds": 5
   },
   "equity": {
     "dates": [

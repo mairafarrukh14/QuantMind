@@ -57,6 +57,7 @@ def main() -> int:
     sel = rng.choice(len(test_obs), size=min(N_DECISIONS, len(test_obs)), replace=False)
 
     records = []
+    detail_records = []
     for n, i in enumerate(sel):
         x = test_obs[i]
         w = f(x.reshape(1, -1))[0]
@@ -73,6 +74,9 @@ def main() -> int:
                    for k in ranked]
         res = rationale.generate_rationale(label, float(w[holding]), drivers)
         records.append(res)
+        detail_records.append({"decision": n, "label": label, "drivers": drivers,
+                               "sentence": res["sentence"], "source": res["source"],
+                               "attempts": res["attempts"], "fail_reasons": res["fail_reasons"]})
         if (n + 1) % 20 == 0:
             print(f"  {n+1}/{len(sel)} decisions...", flush=True)
 
@@ -96,6 +100,8 @@ def main() -> int:
     }
     with open(os.path.join(OUT, "audit_eval.json"), "w") as fh:
         json.dump(out, fh, indent=2)
+    with open(os.path.join(OUT, "audit_records.json"), "w") as fh:
+        json.dump(detail_records, fh, indent=2)
     print(f"\npass-rate (LLM sentence audited OK): {out['pass_rate']:.1%}  "
           f"(first try {out['pass_rate_first_try']:.1%}); "
           f"template fallback {out['template_fallback_rate']:.1%}")

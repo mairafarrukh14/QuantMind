@@ -1,0 +1,2584 @@
+[
+  {
+    "decision": 0,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Johnson & Johnson (JNJ) because its stock price has been trending upwards, its Relative Strength Index (RSI) has been in an overbought state, and its price has been moving in line with its 20-day moving average.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 1,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": -1,
+        "phrase": "price vs its 20-day average"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": -1,
+        "phrase": "short- vs medium-term trend"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its investments to JPM based on its technical analysis, which suggests that its price movements are influenced by various factors, including its MACD trend strength and its relationship with its 20-day average price.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 2,
+    "label": "XOM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "vol_20",
+        "sign": 1,
+        "phrase": "20-day volatility"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its investments to XOM because its stock's MACD trend strength and RSI levels indicate a shift in its overall market position, while its volatility also plays a role in its weight in the portfolio.",
+    "source": "llm",
+    "attempts": 2,
+    "fail_reasons": [
+      "references none of the supplied drivers"
+    ]
+  },
+  {
+    "decision": 3,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "vol_20",
+        "sign": 1,
+        "phrase": "20-day volatility"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to JPM based on its technical indicators, which suggest that the stock is overvalued (RSI is low) and has strong buying signals (MACD trend strength is high) and relatively low volatility (20-day volatility is high).",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 4,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "ret_1d",
+        "sign": 1,
+        "phrase": "recent 1-day return"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its investments to JPM based on its MACD trend strength, which indicates the strength of its short-term price movements, and its recent price movements, which show an increase in value.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 5,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      },
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      }
+    ],
+    "sentence": "QuantMind allocates 40% to JNJ because its RSI (overbought/oversold) increased the weight; its price vs its 20-day average increased the weight; its MACD trend strength reduced the weight.",
+    "source": "template",
+    "attempts": 2,
+    "fail_reasons": [
+      "mentions unlisted driver(s): ['sma5_sma20']",
+      "references none of the supplied drivers"
+    ]
+  },
+  {
+    "decision": 6,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "vol_20",
+        "sign": -1,
+        "phrase": "20-day volatility"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its investments to JPM based on its technical analysis, which suggests that the bank's performance has been influenced by changes in its MACD trend strength, RSI levels, and volatility over time.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 7,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "ret_5d",
+        "sign": -1,
+        "phrase": "5-day momentum"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to JPM based on its technical indicators, which suggest that the stock is overvalued (overbought) and has the potential for significant growth (oversold), while its short-term momentum is decreasing.",
+    "source": "llm",
+    "attempts": 2,
+    "fail_reasons": [
+      "mentions unlisted driver(s): ['sma5_sma20']"
+    ]
+  },
+  {
+    "decision": 8,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      }
+    ],
+    "sentence": "QuantMind allocates 40% to JPM because its RSI (overbought/oversold) reduced the weight; its MACD trend strength reduced the weight; its price vs its 20-day average increased the weight.",
+    "source": "template",
+    "attempts": 2,
+    "fail_reasons": [
+      "mentions unlisted driver(s): ['ret_5d']",
+      "references none of the supplied drivers",
+      "references none of the supplied drivers"
+    ]
+  },
+  {
+    "decision": 9,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "ret_1d",
+        "sign": -1,
+        "phrase": "recent 1-day return"
+      },
+      {
+        "feature": "vol_20",
+        "sign": -1,
+        "phrase": "20-day volatility"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to JPM based on its recent performance, as measured by its Relative Strength Index (RSI), recent returns, and volatility over a 20-day period.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 10,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its investments to Johnson & Johnson (JNJ) because its stock price has been trending upward, its Relative Strength Index (RSI) has been in an overbought state, and its price has been in line with its 20-day moving average.",
+    "source": "llm",
+    "attempts": 2,
+    "fail_reasons": [
+      "references none of the supplied drivers"
+    ]
+  },
+  {
+    "decision": 11,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "vol_20",
+        "sign": -1,
+        "phrase": "20-day volatility"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": -1,
+        "phrase": "short- vs medium-term trend"
+      },
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Johnson & Johnson (JNJ) because its stock's short-term and medium-term trends and volatility are relatively stable, and its price is not excessively high or low.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 12,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "ret_5d",
+        "sign": -1,
+        "phrase": "5-day momentum"
+      },
+      {
+        "feature": "ret_1d",
+        "sign": -1,
+        "phrase": "recent 1-day return"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its investments to JPM based on its historical performance, as it has increased its weight in the stock due to its strong MACD trend strength, reduced its weight due to its low 5-day momentum, and recently seen a decline in its 1-day return.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 13,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "ret_1d",
+        "sign": -1,
+        "phrase": "recent 1-day return"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its investments to JPM based on its technical analysis, which suggests that the bank's performance has been influenced by various factors such as its trend strength, RSI levels, and recent market movements.",
+    "source": "llm",
+    "attempts": 2,
+    "fail_reasons": [
+      "mentions unlisted driver(s): ['sma5_sma20']"
+    ]
+  },
+  {
+    "decision": 14,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "vol_20",
+        "sign": 1,
+        "phrase": "20-day volatility"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": -1,
+        "phrase": "short- vs medium-term trend"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its investments to JPM based on its market analysis, which takes into account the strength of its MACD trend, the volatility of its stock, and its overall trend.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 15,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Johnson & Johnson (JNJ) because its stock price has been rising, its Relative Strength Index (RSI) has been in an overbought state, and its price has been moving in line with its 20-day average.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 16,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its investment to Johnson & Johnson (JNJ) because its stock price has been trending upwards, its Relative Strength Index (RSI) has been in an overbought state, and its price has been moving in line with its 20-day moving average.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 17,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "ret_1d",
+        "sign": -1,
+        "phrase": "recent 1-day return"
+      },
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "ret_5d",
+        "sign": -1,
+        "phrase": "5-day momentum"
+      }
+    ],
+    "sentence": "QuantMind allocates 40% to JPM because its recent 1-day return reduced the weight; its MACD trend strength reduced the weight; its 5-day momentum reduced the weight.",
+    "source": "template",
+    "attempts": 2,
+    "fail_reasons": [
+      "mentions unlisted driver(s): ['sma5_sma20']",
+      "references none of the supplied drivers"
+    ]
+  },
+  {
+    "decision": 18,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "vol_20",
+        "sign": 1,
+        "phrase": "20-day volatility"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Johnson & Johnson (JNJ) because its stock price has been trending upwards, making it overvalued, and its volatility has increased, making it less attractive to the fund.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 19,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Johnson & Johnson (JNJ) because its stock's price movement is influenced by various technical indicators, such as its Relative Strength Index (RSI) and Moving Average Convergence Divergence (MACD), which help determine its overall weight in the portfolio.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 20,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "vol_20",
+        "sign": 1,
+        "phrase": "20-day volatility"
+      },
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Johnson & Johnson (JNJ) because its stock has experienced increased volatility, reduced overboughtness, and shown strong trend strength.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 21,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Johnson & Johnson (JNJ) because its stock price has been rising, its stock has been trending upward, and its price has been moving in line with its 20-day average.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 22,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      }
+    ],
+    "sentence": "QuantMind allocates 40% to JPM because its RSI (overbought/oversold) reduced the weight; its MACD trend strength reduced the weight; its price vs its 20-day average increased the weight.",
+    "source": "template",
+    "attempts": 2,
+    "fail_reasons": [
+      "references none of the supplied drivers",
+      "mentions unlisted driver(s): ['sma5_sma20']"
+    ]
+  },
+  {
+    "decision": 23,
+    "label": "AAPL",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "vol_20",
+        "sign": 1,
+        "phrase": "20-day volatility"
+      },
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Apple (AAPL) because its stock's RSI (overbought/oversold) and volatility levels have shifted in a way that makes it less attractive to the fund.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 24,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      }
+    ],
+    "sentence": "QuantMind allocates 40% of its portfolio to Johnson & Johnson (JNJ) because its stock's price has been rising, its RSI (a measure of how overbought or oversold the stock is) has increased, and its price has been outperforming its 20-day average.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 25,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "ret_5d",
+        "sign": 1,
+        "phrase": "5-day momentum"
+      },
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its investments to JPM based on its technical analysis, which suggests that the bank's performance has been influenced by its MACD trend strength, 5-day momentum, and RSI levels.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 26,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "ret_1d",
+        "sign": 1,
+        "phrase": "recent 1-day return"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its investment to JPM based on its current market performance, as it has increased its weight in the stock due to strong MACD trend strength and a recent increase in its 1-day return.",
+    "source": "llm",
+    "attempts": 2,
+    "fail_reasons": [
+      "references none of the supplied drivers"
+    ]
+  },
+  {
+    "decision": 27,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "vol_20",
+        "sign": -1,
+        "phrase": "20-day volatility"
+      },
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      }
+    ],
+    "sentence": "QuantMind allocates 40% to JNJ because its RSI (overbought/oversold) increased the weight; its 20-day volatility reduced the weight; its MACD trend strength reduced the weight.",
+    "source": "template",
+    "attempts": 2,
+    "fail_reasons": [
+      "mentions unlisted driver(s): ['sma5_sma20']",
+      "mentions unlisted driver(s): ['sma5_sma20']"
+    ]
+  },
+  {
+    "decision": 28,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      },
+      {
+        "feature": "ret_5d",
+        "sign": 1,
+        "phrase": "5-day momentum"
+      }
+    ],
+    "sentence": "QuantMind allocates 40% of its portfolio to Johnson & Johnson (JNJ) because its stock's price has risen, its short-term trend has been strong, and its price has been moving in a relatively upward direction over the past five days.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 29,
+    "label": "XOM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "ret_5d",
+        "sign": 1,
+        "phrase": "5-day momentum"
+      },
+      {
+        "feature": "vol_20",
+        "sign": 1,
+        "phrase": "20-day volatility"
+      }
+    ],
+    "sentence": "QuantMind allocates 40% to XOM because its MACD trend strength increased the weight; its 5-day momentum increased the weight; its 20-day volatility increased the weight.",
+    "source": "template",
+    "attempts": 2,
+    "fail_reasons": [
+      "mentions unlisted driver(s): ['sma5_sma20']",
+      "mentions unlisted driver(s): ['sma5_sma20']"
+    ]
+  },
+  {
+    "decision": 30,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to JPM based on its technical analysis, which suggests that its stock is overvalued (overbought) and undervalued (oversold) relative to its price.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 31,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      },
+      {
+        "feature": "vol_20",
+        "sign": -1,
+        "phrase": "20-day volatility"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Johnson & Johnson (JNJ) because its stock has shown a strong upward trend, its price has dropped to a relatively low point, and its volatility has decreased.",
+    "source": "llm",
+    "attempts": 2,
+    "fail_reasons": [
+      "references none of the supplied drivers"
+    ]
+  },
+  {
+    "decision": 32,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Johnson & Johnson (JNJ) because its stock price has been trending upwards, its Relative Strength Index (RSI) has been in an overbought state, and its price has been moving in line with its 20-day moving average.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 33,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      },
+      {
+        "feature": "vol_20",
+        "sign": -1,
+        "phrase": "20-day volatility"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant amount of its portfolio to Johnson & Johnson (JNJ) because its stock price has been trending upward, its Relative Strength Index (RSI) has been in an overbought state, and its short-term trend has been increasing, while its 20-day volatility has decreased.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 34,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "ret_1d",
+        "sign": 1,
+        "phrase": "recent 1-day return"
+      },
+      {
+        "feature": "vol_20",
+        "sign": 1,
+        "phrase": "20-day volatility"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to JPM based on its recent performance, as its strong 1-day return and relatively low 20-day volatility have increased its attractiveness.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 35,
+    "label": "XOM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "ret_5d",
+        "sign": 1,
+        "phrase": "5-day momentum"
+      }
+    ],
+    "sentence": "QuantMind allocates 40% of its investments to XOM because its stock's trend strength increased its weight, its RSI (overbought/oversold) reduced its weight, and its 5-day momentum increased its weight.",
+    "source": "llm",
+    "attempts": 2,
+    "fail_reasons": [
+      "mentions unlisted driver(s): ['sma5_sma20']",
+      "references none of the supplied drivers"
+    ]
+  },
+  {
+    "decision": 36,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      },
+      {
+        "feature": "ret_5d",
+        "sign": 1,
+        "phrase": "5-day momentum"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Johnson & Johnson (JNJ) because its stock price has been outperforming its 20-day moving average, its short-term trend has been increasing, and its 5-day momentum has been rising.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 37,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "vol_20",
+        "sign": 1,
+        "phrase": "20-day volatility"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Johnson & Johnson (JNJ) because its stock price has been trending upwards, its stock has been showing signs of being overvalued, and its volatility has increased, making it a more attractive investment opportunity.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 38,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "ret_1d",
+        "sign": 1,
+        "phrase": "recent 1-day return"
+      },
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its investments to JPM based on its performance in the market, as it has increased its weight in the portfolio due to its strong MACD trend strength and recent 1-day return, while its RSI has decreased its weight.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 39,
+    "label": "XOM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "ret_5d",
+        "sign": -1,
+        "phrase": "5-day momentum"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to XOM because its stock's momentum has decreased, indicating a potential decrease in value, and its MACD trend strength has increased, suggesting a potential increase in value.",
+    "source": "llm",
+    "attempts": 2,
+    "fail_reasons": [
+      "mentions unlisted driver(s): ['vol_20']"
+    ]
+  },
+  {
+    "decision": 40,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      },
+      {
+        "feature": "vol_20",
+        "sign": 1,
+        "phrase": "20-day volatility"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Johnson & Johnson (JNJ) because its stock price has increased in recent times, making it overvalued, and its short-term and medium-term trends are upward, while its short-term volatility has decreased.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 41,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "vol_20",
+        "sign": 1,
+        "phrase": "20-day volatility"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      }
+    ],
+    "sentence": "QuantMind's investment strategy is based on analyzing the stock's technical indicators, such as its Relative Strength Index (RSI) and volatility, to determine its weight in the portfolio.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 42,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      }
+    ],
+    "sentence": "QuantMind allocates 40% of its portfolio to Johnson & Johnson (JNJ) because its stock has been trending upward, its price has been rising relative to its 20-day moving average, and its Relative Strength Index (RSI) has been increasing, indicating a potential increase in its weight in the portfolio.",
+    "source": "llm",
+    "attempts": 2,
+    "fail_reasons": [
+      "references none of the supplied drivers"
+    ]
+  },
+  {
+    "decision": 43,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "vol_20",
+        "sign": 1,
+        "phrase": "20-day volatility"
+      },
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": -1,
+        "phrase": "short- vs medium-term trend"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Johnson & Johnson (JNJ) because its stock price has become more volatile over time, and its trend lines are trending upwards, which suggests a higher weight in the portfolio.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 44,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "ret_1d",
+        "sign": -1,
+        "phrase": "recent 1-day return"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to JPM based on its recent performance, as indicated by its low RSI (overbought/oversold) and MACD trend strength, and its positive 1-day return.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 45,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Johnson & Johnson (JNJ) because its stock price has been rising, its Relative Strength Index (RSI) has been decreasing, and its overall trend has been moving in the right direction.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 46,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Johnson & Johnson (JNJ) because its stock price has been trending upwards, as indicated by its Relative Strength Index (RSI) that has moved from overbought to oversold, and its moving average convergence divergence (MACD) trend line has shifted from a bearish to a bullish signal.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 47,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "ret_1d",
+        "sign": 1,
+        "phrase": "recent 1-day return"
+      },
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its investment to JPM based on its recent performance, as it has reduced its weight in the stock due to a decline in its MACD trend strength.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 48,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "vol_20",
+        "sign": -1,
+        "phrase": "20-day volatility"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": -1,
+        "phrase": "short- vs medium-term trend"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Johnson & Johnson (JNJ) because its stock price has been trending upwards, its RSI (overbought/oversold) has decreased, and its volatility has decreased, indicating a strong buying signal.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 49,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "ret_1d",
+        "sign": 1,
+        "phrase": "recent 1-day return"
+      },
+      {
+        "feature": "vol_20",
+        "sign": 1,
+        "phrase": "20-day volatility"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its investments to JPM based on its recent performance, as measured by its MACD trend strength, 1-day return, and 20-day volatility.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 50,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "ret_1d",
+        "sign": 1,
+        "phrase": "recent 1-day return"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to JPM based on its recent performance, as it has shown a decrease in its Relative Strength Index (RSI) and trend strength, and an increase in its 1-day return.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 51,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Johnson & Johnson (JNJ) because its stock price has been rising, its stock has been trending upward, and its price has been moving in line with its 20-day moving average.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 52,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      }
+    ],
+    "sentence": "QuantMind allocates 40% of its portfolio to Johnson & Johnson (JNJ) because its stock price has been rising and its Relative Strength Index (RSI) has been decreasing, indicating a potential increase in value.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 53,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": -1,
+        "phrase": "price vs its 20-day average"
+      }
+    ],
+    "sentence": "QuantMind allocates 40% to JPM because its MACD trend strength increased the weight; its RSI (overbought/oversold) reduced the weight; its price vs its 20-day average reduced the weight.",
+    "source": "template",
+    "attempts": 2,
+    "fail_reasons": [
+      "mentions unlisted driver(s): ['vol_20']",
+      "references none of the supplied drivers"
+    ]
+  },
+  {
+    "decision": 54,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "vol_20",
+        "sign": 1,
+        "phrase": "20-day volatility"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to JPM based on its technical analysis, which suggests that the bank's stock is overvalued (overbought) and has reached a level of stability (oversold) that warrants a more conservative allocation.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 55,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Johnson & Johnson (JNJ) because its stock has been trending upwards, with its Relative Strength Index (RSI) indicating overbought conditions and its price relative to its 20-day moving average showing increased strength, and its short-term trend has been bullish.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 56,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "ret_5d",
+        "sign": 1,
+        "phrase": "5-day momentum"
+      }
+    ],
+    "sentence": "QuantMind allocates 40% to JPM because its MACD trend strength reduced the weight; its RSI (overbought/oversold) reduced the weight; its 5-day momentum increased the weight.",
+    "source": "template",
+    "attempts": 2,
+    "fail_reasons": [
+      "references none of the supplied drivers",
+      "references none of the supplied drivers"
+    ]
+  },
+  {
+    "decision": 57,
+    "label": "XOM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "ret_5d",
+        "sign": -1,
+        "phrase": "5-day momentum"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its investment to XOM because its stock's momentum has decreased, its RSI has risen, and its MACD trend strength has decreased, indicating a potential shift in its overall weight in the portfolio.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 58,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      }
+    ],
+    "sentence": "QuantMind allocates 40% to JPM because its RSI (overbought/oversold) reduced the weight; its MACD trend strength reduced the weight; its short- vs medium-term trend increased the weight.",
+    "source": "template",
+    "attempts": 2,
+    "fail_reasons": [
+      "mentions unlisted driver(s): ['ret_5d']",
+      "references none of the supplied drivers"
+    ]
+  },
+  {
+    "decision": 59,
+    "label": "XOM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "vol_20",
+        "sign": 1,
+        "phrase": "20-day volatility"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its investments to XOM because its stock price movement is influenced by various technical indicators, such as its MACD trend strength and volatility, which help determine its weight in the portfolio.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 60,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "vol_20",
+        "sign": 1,
+        "phrase": "20-day volatility"
+      },
+      {
+        "feature": "ret_1d",
+        "sign": 1,
+        "phrase": "recent 1-day return"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to JPM based on its recent performance, as it has shown a decrease in its Relative Strength Index (RSI) and an increase in its volatility, which suggests a potential shift in its market weight.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 61,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Johnson & Johnson (JNJ) because its stock price has been trending upwards, its Relative Strength Index (RSI) has been in an overbought state, and its price has been consistently higher than its 20-day moving average.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 62,
+    "label": "XOM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "vol_20",
+        "sign": 1,
+        "phrase": "20-day volatility"
+      },
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its investment to XOM because its stock's performance is influenced by various technical indicators, such as its MACD trend strength and volatility, which are both increasing.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 63,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "vol_20",
+        "sign": -1,
+        "phrase": "20-day volatility"
+      },
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Johnson & Johnson (JNJ) because its stock has shown increased strength in terms of its Relative Strength Index (RSI) and reduced volatility, making it a more attractive investment option.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 64,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its investments to JPM based on its technical analysis, which suggests that the bank's market performance is influenced by its MACD trend strength and RSI levels.",
+    "source": "llm",
+    "attempts": 2,
+    "fail_reasons": [
+      "mentions unlisted driver(s): ['vol_20']"
+    ]
+  },
+  {
+    "decision": 65,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      }
+    ],
+    "sentence": "QuantMind allocates 40% to JPM because its RSI (overbought/oversold) reduced the weight; its MACD trend strength reduced the weight; its price vs its 20-day average increased the weight.",
+    "source": "template",
+    "attempts": 2,
+    "fail_reasons": [
+      "references none of the supplied drivers",
+      "references none of the supplied drivers"
+    ]
+  },
+  {
+    "decision": 66,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to JPM based on its technical analysis, which suggests that its stock is overvalued when its Relative Strength Index (RSI) is low and its Moving Average Convergence Divergence (MACD) trend strength is high, and undervalued when its stock is undervalued in the short-term.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 67,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "ret_1d",
+        "sign": -1,
+        "phrase": "recent 1-day return"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to JPM based on its recent performance, as it has reduced its weight in the stock due to a decline in its MACD trend strength and recent 1-day return.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 68,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "vol_20",
+        "sign": 1,
+        "phrase": "20-day volatility"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its investments to JPM based on its technical analysis, which suggests that the bank's performance is influenced by various factors such as its MACD trend strength, RSI levels, and volatility.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 69,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Johnson & Johnson (JNJ) because its stock price has been trending upwards, its Relative Strength Index (RSI) has been in an overbought state, and its price has been in line with its 20-day moving average.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 70,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      }
+    ],
+    "sentence": "QuantMind allocates 40% to JPM because its RSI (overbought/oversold) reduced the weight; its MACD trend strength reduced the weight; its price vs its 20-day average increased the weight.",
+    "source": "template",
+    "attempts": 2,
+    "fail_reasons": [
+      "mentions unlisted driver(s): ['ret_5d']",
+      "references none of the supplied drivers",
+      "mentions unlisted driver(s): ['ret_5d']",
+      "references none of the supplied drivers"
+    ]
+  },
+  {
+    "decision": 71,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Johnson & Johnson (JNJ) because its stock price has been trending upward, its Relative Strength Index (RSI) has been in an overbought state, and its price has been consistently outperforming its 20-day moving average.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 72,
+    "label": "XOM",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "ret_5d",
+        "sign": -1,
+        "phrase": "5-day momentum"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to XOM because its stock price has moved into an overbought state, making it less attractive, and its momentum has slowed down, making it less attractive.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 73,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": -1,
+        "phrase": "price vs its 20-day average"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": -1,
+        "phrase": "short- vs medium-term trend"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its investments to Johnson & Johnson (JNJ) because its stock price has been trending upwards, its Relative Strength Index (RSI) has been in an oversold position, and its price has been in line with its 20-day moving average.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 74,
+    "label": "XOM",
+    "drivers": [
+      {
+        "feature": "ret_5d",
+        "sign": 1,
+        "phrase": "5-day momentum"
+      },
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "vol_20",
+        "sign": 1,
+        "phrase": "20-day volatility"
+      }
+    ],
+    "sentence": "QuantMind allocates 40% of its portfolio to XOM because its stock's recent upward movement has increased its weight, while its volatility has decreased, and its short-term momentum has also increased its influence.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 75,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "ret_1d",
+        "sign": -1,
+        "phrase": "recent 1-day return"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to JPM based on its recent price movements, as it has shown a decrease in its Relative Strength Index (RSI) and an increase in its price compared to its 20-day moving average.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 76,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": -1,
+        "phrase": "short- vs medium-term trend"
+      },
+      {
+        "feature": "ret_5d",
+        "sign": 1,
+        "phrase": "5-day momentum"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Johnson & Johnson (JNJ) because its stock's price has been rising, its short-term trend has been declining, and its price has been moving in a strong upward direction over the past five days.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 77,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Johnson & Johnson (JNJ) because its stock price has been trending upwards, its Relative Strength Index (RSI) has been in an overbought state, and its price has been in line with its 20-day moving average.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 78,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "ret_5d",
+        "sign": 1,
+        "phrase": "5-day momentum"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its investment to JPM based on its technical analysis, which suggests that the stock's performance is influenced by various indicators, including its MACD trend strength, RSI levels, and 5-day momentum.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 79,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      },
+      {
+        "feature": "ret_5d",
+        "sign": 1,
+        "phrase": "5-day momentum"
+      }
+    ],
+    "sentence": "QuantMind allocates 40% to JNJ because its RSI (overbought/oversold) increased the weight; its price vs its 20-day average increased the weight; its 5-day momentum increased the weight.",
+    "source": "template",
+    "attempts": 2,
+    "fail_reasons": [
+      "mentions unlisted driver(s): ['sma5_sma20']",
+      "mentions unlisted driver(s): ['sma5_sma20']"
+    ]
+  },
+  {
+    "decision": 80,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its investment portfolio to JPM based on its technical analysis, which suggests that its trend strength has decreased, its RSI has decreased, and its short-term trend has increased.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 81,
+    "label": "AAPL",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "vol_20",
+        "sign": 1,
+        "phrase": "20-day volatility"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Apple (AAPL) because its technical indicators, such as MACD trend strength and RSI levels, have shifted in a way that suggests the stock may be undervalued.",
+    "source": "llm",
+    "attempts": 2,
+    "fail_reasons": [
+      "mentions unlisted driver(s): ['ret_5d']"
+    ]
+  },
+  {
+    "decision": 82,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Johnson & Johnson (JNJ) because its stock price has shown a strong upward trend, its RSI (overbought/oversold) level has increased, and its price has consistently outperformed its 20-day moving average.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 83,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Johnson & Johnson (JNJ) because its stock price has been trending upward, its Relative Strength Index (RSI) has been in an overbought state, and its price has been moving in line with its 20-day moving average.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 84,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "ret_5d",
+        "sign": 1,
+        "phrase": "5-day momentum"
+      }
+    ],
+    "sentence": "QuantMind allocates 40% to JPM because its MACD trend strength increased the weight; its RSI (overbought/oversold) reduced the weight; its 5-day momentum increased the weight.",
+    "source": "template",
+    "attempts": 2,
+    "fail_reasons": [
+      "mentions unlisted driver(s): ['sma5_sma20']",
+      "mentions unlisted driver(s): ['sma5_sma20']",
+      "references none of the supplied drivers"
+    ]
+  },
+  {
+    "decision": 85,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its investments to Johnson & Johnson (JNJ) because its stock price has been trending upwards, its Relative Strength Index (RSI) has been in an overbought state, and its price has been in line with its 20-day average.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 86,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Johnson & Johnson (JNJ) because its stock price has been trending upwards, its Relative Strength Index (RSI) has been in an overbought state, and its price has been in line with its 20-day moving average.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 87,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "vol_20",
+        "sign": -1,
+        "phrase": "20-day volatility"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to JPM Bank based on its technical analysis, which suggests that its stock is overvalued, its volatility is low, and its price is in line with its historical average.",
+    "source": "llm",
+    "attempts": 2,
+    "fail_reasons": [
+      "references none of the supplied drivers"
+    ]
+  },
+  {
+    "decision": 88,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "ret_5d",
+        "sign": 1,
+        "phrase": "5-day momentum"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": -1,
+        "phrase": "price vs its 20-day average"
+      }
+    ],
+    "sentence": "QuantMind allocates 40% to JPM because its MACD trend strength increased the weight; its 5-day momentum increased the weight; its price vs its 20-day average reduced the weight.",
+    "source": "template",
+    "attempts": 2,
+    "fail_reasons": [
+      "references none of the supplied drivers",
+      "mentions unlisted driver(s): ['sma5_sma20']"
+    ]
+  },
+  {
+    "decision": 89,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Johnson & Johnson (JNJ) because its stock price has been rising, its Relative Strength Index (RSI) has been in an overbought state, and its price has been moving in line with its 20-day average.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 90,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": -1,
+        "phrase": "short- vs medium-term trend"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its investments to JPM based on its technical analysis, which suggests that the stock's performance is influenced by its trend strength, RSI levels, and short-term vs medium-term trend.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 91,
+    "label": "AAPL",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "vol_20",
+        "sign": 1,
+        "phrase": "20-day volatility"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its investment portfolio to Apple (AAPL) because its stock's RSI (overbought/oversold) level has decreased, its MACD trend strength has increased, and its 20-day volatility has risen.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 92,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "vol_20",
+        "sign": -1,
+        "phrase": "20-day volatility"
+      }
+    ],
+    "sentence": "QuantMind allocates 40% to JPM because its MACD trend strength reduced the weight; its RSI (overbought/oversold) increased the weight; its 20-day volatility reduced the weight.",
+    "source": "template",
+    "attempts": 2,
+    "fail_reasons": [
+      "invented number: 20",
+      "references none of the supplied drivers"
+    ]
+  },
+  {
+    "decision": 93,
+    "label": "XOM",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "ret_5d",
+        "sign": -1,
+        "phrase": "5-day momentum"
+      }
+    ],
+    "sentence": "QuantMind allocates 40% of its portfolio to XOM because its stock's recent increase in Relative Strength Index (RSI) and MACD trend strength, combined with a decline in its 5-day momentum, have reduced its overall weight in the portfolio.",
+    "source": "llm",
+    "attempts": 2,
+    "fail_reasons": [
+      "mentions unlisted driver(s): ['sma5_sma20']"
+    ]
+  },
+  {
+    "decision": 94,
+    "label": "AAPL",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "vol_20",
+        "sign": -1,
+        "phrase": "20-day volatility"
+      }
+    ],
+    "sentence": "QuantMind allocates 40% to AAPL because its MACD trend strength reduced the weight; its RSI (overbought/oversold) increased the weight; its 20-day volatility reduced the weight.",
+    "source": "template",
+    "attempts": 2,
+    "fail_reasons": [
+      "mentions unlisted driver(s): ['ret_5d', 'sma5_sma20']",
+      "references none of the supplied drivers"
+    ]
+  },
+  {
+    "decision": 95,
+    "label": "JPM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "vol_20",
+        "sign": -1,
+        "phrase": "20-day volatility"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its investments to JPM based on its technical analysis, which suggests that the bank's performance has been influenced by various factors such as its MACD trend strength, RSI levels, and volatility over time.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 96,
+    "label": "XOM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": -1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "ret_5d",
+        "sign": -1,
+        "phrase": "5-day momentum"
+      }
+    ],
+    "sentence": "QuantMind allocates 40% of its investments to XOM because its stock's MACD trend strength decreased the weight, its RSI (overbought/oversold) increased the weight, and its 5-day momentum reduced the weight.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 97,
+    "label": "XOM",
+    "drivers": [
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      },
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "vol_20",
+        "sign": 1,
+        "phrase": "20-day volatility"
+      }
+    ],
+    "sentence": "QuantMind allocates 40% of its portfolio to XOM because its stock's trend strength increased its weight, its RSI (overbought/oversold) decreased its weight, and its volatility increased its weight.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  },
+  {
+    "decision": 98,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": -1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "vol_20",
+        "sign": 1,
+        "phrase": "20-day volatility"
+      },
+      {
+        "feature": "macd_hist",
+        "sign": 1,
+        "phrase": "MACD trend strength"
+      }
+    ],
+    "sentence": "QuantMind allocates 40% to JNJ because its RSI (overbought/oversold) reduced the weight; its 20-day volatility increased the weight; its MACD trend strength increased the weight.",
+    "source": "template",
+    "attempts": 2,
+    "fail_reasons": [
+      "mentions unlisted driver(s): ['sma5_sma20']",
+      "mentions unlisted driver(s): ['sma5_sma20']"
+    ]
+  },
+  {
+    "decision": 99,
+    "label": "JNJ",
+    "drivers": [
+      {
+        "feature": "rsi_14",
+        "sign": 1,
+        "phrase": "RSI (overbought/oversold)"
+      },
+      {
+        "feature": "px_sma20",
+        "sign": 1,
+        "phrase": "price vs its 20-day average"
+      },
+      {
+        "feature": "sma5_sma20",
+        "sign": 1,
+        "phrase": "short- vs medium-term trend"
+      }
+    ],
+    "sentence": "QuantMind allocates a significant portion of its portfolio to Johnson & Johnson (JNJ) because its stock price has been rising, its Relative Strength Index (RSI) has been increasing, and its short-term trend has been upward.",
+    "source": "llm",
+    "attempts": 1,
+    "fail_reasons": []
+  }
+]

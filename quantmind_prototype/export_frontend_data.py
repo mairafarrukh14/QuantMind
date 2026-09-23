@@ -142,6 +142,16 @@ def main():
 
     avg_turnover = float(weights.diff().abs().sum(axis=1).mean())
 
+    # Five-seed mean Sharpe, read from the locked evaluation (never retrained here),
+    # so the dashboard can state the honest multi-seed result next to the best-seed
+    # headline figures rather than letting a single run stand for the agent.
+    eval_path = os.path.join(config.RESULTS_DIR, "evaluation.json")
+    with open(eval_path) as fh:
+        eval_locked = json.load(fh)
+    mean_key = next(k for k in eval_locked["main_table"] if k.startswith("PPO (mean"))
+    mean_sharpe_5seed = eval_locked["main_table"][mean_key]["Sharpe"]
+    n_seeds = 5
+
     out = {
         "meta": {
             "data_source": source,
@@ -165,6 +175,8 @@ def main():
             "volatility": metrics_dict[agent_rets.name]["Ann. Volatility"],
             "sortino": metrics_dict[agent_rets.name]["Sortino"],
             "avg_turnover": avg_turnover,
+            "mean_sharpe_5seed": mean_sharpe_5seed,
+            "n_seeds": n_seeds,
         },
         "equity": {"dates": d_dates, "agent": a, "buyhold": b, "best": c},
         "allocation_ts": {"dates": ad_dates, "series": alloc_ds, "columns": cols},

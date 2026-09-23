@@ -18,10 +18,5 @@
     "efficiency_rhs_fx_minus_base": 1.8904559245602877,
     "efficiency_gap": 0.009432576781867485
   },
-  "energy_analysis": {
-    "xom_mean_weight_2022_spike": 0.3112866282463074,
-    "xom_mean_weight_2023_onward": 0.20595639944076538,
-    "xom_mean_weight_full_test": 0.24598106741905212,
-    "ratio_spike_to_later": 1.5114200115203857
-  }
+  "_note": "energy_analysis removed: its xom_mean_weight_2022_spike (0.311, a sub-period mean) duplicated and disagreed with the canonical full-2022 mean in allocation_summary.json (0.326), which the report cites. cap_check and shapley_validation here are independent spot-checks, superseded by the property test suite and Table 16, and are kept only as an early validation record."
 }

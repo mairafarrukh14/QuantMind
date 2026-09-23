@@ -216,3 +216,20 @@ def test_audit_catches_violations():
     unlisted_driver = "MACD trend strength increased the weight."
     for bad in (wrong_sign, invented_number, unlisted_driver):
         assert not audit.audit_sentence(bad, drivers).passed, f"audit passed: {bad!r}"
+
+
+def test_template_sentence_always_passes_audit():
+    """The fallback template must satisfy its own audit for every set of drivers
+    it can receive, including the case that broke it: MACD ('trend strength')
+    without the separate trend feature also present, where 'trend' as a
+    substring of 'trend strength' used to register a driver never supplied."""
+    import itertools
+
+    from src import audit, rationale
+    feats = list(audit.FEATURE_SYNONYMS)
+    for combo in itertools.combinations(feats, 3):
+        for signs in itertools.product([1, -1], repeat=3):
+            drivers = [{"feature": f, "sign": s} for f, s in zip(combo, signs)]
+            sent = rationale.template_sentence("JPM", 0.40, drivers)
+            res = audit.audit_sentence(sent, [{**d, "weight": 0.40} for d in drivers])
+            assert res.passed, (sent, res.reasons)

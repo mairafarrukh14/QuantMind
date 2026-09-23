@@ -2,7 +2,7 @@
 
 The suite is deliberately hermetic: every test builds its own small synthetic
 environment or synthetic function, so `pytest` runs in a few seconds on a fresh
-clone with no trained model, no network and no downloaded weights. The eight
+clone with no trained model, no network and no downloaded weights. The nine
 properties are the correctness claims the report makes, converted from assertion
 into evidence.
 
@@ -58,7 +58,7 @@ def synth_market(rng):
 #  Pass-table exporter — the artifact Chapter 5 reads                         #
 # --------------------------------------------------------------------------- #
 # Human-readable property name per test function, keyed by the report's
-# numbering so the exported table matches the report's eight-property table.
+# numbering so the exported table matches the report's nine-property table.
 PROPERTY_LABELS = {
     "test_no_lookahead": "1. No look-ahead in reward",
     "test_valid_simplex": "2. Valid simplex (weights >=0, sum to 1)",
@@ -68,6 +68,7 @@ PROPERTY_LABELS = {
     "test_shapley_efficiency": "6. Shapley efficiency axiom",
     "test_sentiment_no_leakage": "7. Sentiment pre-close no-leakage",
     "test_audit_catches_violations": "8. Audit rejects corrupted rationales",
+    "test_template_sentence_always_passes_audit": "9. Template sentence passes the audit for every driver set",
 }
 
 _OUTCOMES: dict[str, str] = {}

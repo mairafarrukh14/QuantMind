@@ -39,6 +39,14 @@
       "role": "robustness refit",
       "window": "three expanding windows",
       "counts_toward_trials": false
+    },
+    {
+      "universe": "extended",
+      "variant": "price (walk-forward refits)",
+      "runs": 15,
+      "role": "robustness refit",
+      "window": "three expanding windows",
+      "counts_toward_trials": false
     }
   ],
   "candidate_trials": 15,

@@ -116,12 +116,19 @@ comparison arm. `study/arm_b_session_guide.md` describes running a session.
 ## Tests
 
 ```bash
-python -m pytest                     # runs tests/test_properties.py
+python -m pytest                     # runs everything under tests/: 21 tests
 ```
 
-The eight properties: no look-ahead, valid simplex, cap enforced, exact cost,
-Shapley closed-form, Shapley efficiency, sentiment pre-close no-leakage, and audit
-rejects corrupted rationales. All pass on a fresh clone.
+Nine design properties (`tests/test_properties.py`): no look-ahead, valid simplex,
+cap enforced, exact cost, Shapley closed-form, Shapley efficiency, sentiment
+pre-close no-leakage, audit rejects corrupted rationales, and the fallback template
+sentence passes the audit for every driver set it can receive. The rest cover the
+live recommendation path (`test_recommend.py`) and the study-arm analysis pipeline
+(`test_study_arms.py`, synthetic data only). All 21 pass on a fresh clone.
+
+`run_report_tables.py` needs `study/responses_main.csv` and `study/responses_b.csv`,
+which are pseudonymised participant data and are not published in this repository;
+it will not run on a fresh clone without them.
 
 ## Configuration
 All tunables live in `src/config.py` (asset universe, dates, costs, PPO budget).
