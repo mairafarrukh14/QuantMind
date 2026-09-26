@@ -90,7 +90,7 @@ def record_session(session: Session, log_csv: str = LOG_CSV) -> None:
 
 def summarise(log_csv: str = LOG_CSV) -> dict:
     """Pilot summary Chapter 5 reads: SUS mean, task-completion rate, n. Returns an
-    empty summary (n=0) until real sessions are recorded -- never fabricated."""
+    empty summary (n=0) until real sessions are recorded."""
     if not os.path.exists(log_csv):
         return {"n": 0, "note": "no sessions recorded yet; pilot pending"}
     rows = list(csv.DictReader(open(log_csv, encoding="utf-8")))

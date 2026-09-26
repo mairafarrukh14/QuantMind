@@ -1,6 +1,6 @@
 """QuantMind property test suite.
 
-Eight properties that turn the report's correctness claims into evidence:
+Ten properties that turn the report's correctness claims into evidence:
 
   1. No look-ahead  - the reward at day t depends on t+1 returns, never t.
   2. Valid simplex  - allocations are non-negative and sum to 1 every step.
@@ -10,8 +10,11 @@ Eight properties that turn the report's correctness claims into evidence:
   6. Shapley efficiency  - contributions sum to f(x) - f(baseline).
   7. Sentiment no-leakage - a post-close headline never moves that day's score.
   8. Audit catches violations - corrupted rationales are rejected.
+  9. Template sentence always passes the audit, for every driver set it can receive.
+  10. Sentiment cache date assignment - the pipeline's real pre-close cut and
+      roll-forward, as opposed to the score_asset_day primitive property 7 checks.
 
-Properties 7 and 8 are red-green against the sentiment pipeline and the
+Properties 7, 8 and 10 are red-green against the sentiment pipeline and the
 rationale audit: they auto-activate via ``importorskip`` the moment those
 modules exist, and until then report as skipped in the exported pass table.
 """
@@ -233,3 +236,26 @@ def test_template_sentence_always_passes_audit():
             sent = rationale.template_sentence("JPM", 0.40, drivers)
             res = audit.audit_sentence(sent, [{**d, "weight": 0.40} for d in drivers])
             assert res.passed, (sent, res.reasons)
+
+
+# --------------------------------------------------------------------------- #
+#  10. Sentiment cache date assignment (the pipeline's actual pre-close cut,   #
+#      not the score_asset_day primitive property 7 checks)                   #
+# --------------------------------------------------------------------------- #
+def test_sentiment_cache_date_assignment():
+    """``_effective_trading_date`` is what the cache builder actually calls: a
+    headline before the 20:00 UTC cut counts same-day, at or after the cut rolls
+    to the next session, one on a non-trading day rolls to the next trading day,
+    and one after the last available close is dropped (NaT)."""
+    sentiment = pytest.importorskip(
+        "src.sentiment", reason="sentiment pipeline not built yet")
+    import pandas as pd
+
+    days = pd.bdate_range("2023-06-01", periods=5)              # Thu 1 .. Wed 7 June
+    ts = pd.Series(pd.to_datetime([
+        "2023-06-01 19:59", "2023-06-01 20:00", "2023-06-03 12:00", "2023-06-07 21:00"]))
+    eff = pd.to_datetime(sentiment._effective_trading_date(ts, days))
+    assert eff[0] == pd.Timestamp("2023-06-01")   # before the cut: same day
+    assert eff[1] == pd.Timestamp("2023-06-02")   # at the cut: next session
+    assert eff[2] == pd.Timestamp("2023-06-05")   # Saturday: rolls to Monday
+    assert pd.isna(eff[3])                        # after the last close: dropped

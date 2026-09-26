@@ -2,7 +2,7 @@
 
 This guide covers running the comparison arm of the QuantMind user study and the
 exact format in which to record each session. Only real sessions with real,
-consenting people are recorded. Nothing here is to be filled in from imagination.
+consenting people are recorded.
 
 ## 1. Who and how many
 

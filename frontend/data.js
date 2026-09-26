@@ -49,6 +49,7 @@ window.QM_DATA = {
     "sortino": 1.3418714595,
     "avg_turnover": 0.04832254350185394,
     "mean_sharpe_5seed": 0.5526068220481974,
+    "sd_sharpe_5seed": 0.2597938410432894,
     "n_seeds": 5
   },
   "equity": {

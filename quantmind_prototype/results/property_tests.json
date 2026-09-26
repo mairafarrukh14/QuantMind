@@ -35,8 +35,12 @@
     {
       "property": "9. Template sentence passes the audit for every driver set",
       "result": "passed"
+    },
+    {
+      "property": "10. Sentiment cache date assignment (real pre-close cut)",
+      "result": "passed"
     }
   ],
-  "n_passed": 9,
-  "n_total": 9
+  "n_passed": 10,
+  "n_total": 10
 }

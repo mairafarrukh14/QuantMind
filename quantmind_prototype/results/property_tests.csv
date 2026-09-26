@@ -8,3 +8,4 @@ property,result
 7. Sentiment pre-close no-leakage,passed
 8. Audit rejects corrupted rationales,passed
 9. Template sentence passes the audit for every driver set,passed
+10. Sentiment cache date assignment (real pre-close cut),passed

@@ -120,12 +120,14 @@ def chat_answer(question: str, payload: dict) -> dict:
         return {"answer": r["sentence"], "source": r["source"]}
 
     if any(w in q for w in ("sharpe", "return", "drawdown", "performance", "risk")):
+        n_seeds = kpis.get("n_seeds", 5)
         return {"answer": (
             f"Over the test period the portfolio returned "
             f"{kpis.get('total_return', 0)*100:.1f}% with a Sharpe ratio of "
             f"{kpis.get('sharpe', 0):.2f} and a maximum drawdown of "
             f"{kpis.get('max_drawdown', 0)*100:.1f}%. Note this is one best-seed run; "
-            f"across five seeds the Sharpe averages 0.55 (sd 0.26)."), "source": "template"}
+            f"across {n_seeds} seeds the Sharpe averages {kpis.get('mean_sharpe_5seed', 0):.2f} "
+            f"(sd {kpis.get('sd_sharpe_5seed', 0):.2f})."), "source": "template"}
 
     if any(w in q for w in ("hold", "allocat", "weight", "portfolio", "own")):
         parts = [f"{r['ticker']} {r['weight']*100:.0f}%" for r in recs if r["weight"] > 0.01]

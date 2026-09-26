@@ -2,7 +2,7 @@
 
 The suite is deliberately hermetic: every test builds its own small synthetic
 environment or synthetic function, so `pytest` runs in a few seconds on a fresh
-clone with no trained model, no network and no downloaded weights. The nine
+clone with no trained model, no network and no downloaded weights. The ten
 properties are the correctness claims the report makes, converted from assertion
 into evidence.
 
@@ -69,6 +69,7 @@ PROPERTY_LABELS = {
     "test_sentiment_no_leakage": "7. Sentiment pre-close no-leakage",
     "test_audit_catches_violations": "8. Audit rejects corrupted rationales",
     "test_template_sentence_always_passes_audit": "9. Template sentence passes the audit for every driver set",
+    "test_sentiment_cache_date_assignment": "10. Sentiment cache date assignment (real pre-close cut)",
 }
 
 _OUTCOMES: dict[str, str] = {}

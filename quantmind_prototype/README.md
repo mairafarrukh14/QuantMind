@@ -44,7 +44,7 @@ pip install -r requirements-optional.txt
 ## Reproduce every result (from locked artifacts)
 
 ```bash
-python -m pytest                     # test suite: 8 property tests + recommendation and study-analysis tests
+python -m pytest                     # test suite: 10 property tests + recommendation and study-analysis tests
 python run_experiments_w3.py         # 10 locked runs (5 seeds x sentiment off/on)
 python run_experiments_placebo.py    # 5 seeds, sentiment dates shuffled (control)
 python run_evaluation.py             # main table, baselines, bootstrap CI, deflated Sharpe
@@ -116,15 +116,16 @@ comparison arm. `study/arm_b_session_guide.md` describes running a session.
 ## Tests
 
 ```bash
-python -m pytest                     # runs everything under tests/: 21 tests
+python -m pytest                     # runs everything under tests/: 22 tests
 ```
 
-Nine design properties (`tests/test_properties.py`): no look-ahead, valid simplex,
+Ten design properties (`tests/test_properties.py`): no look-ahead, valid simplex,
 cap enforced, exact cost, Shapley closed-form, Shapley efficiency, sentiment
-pre-close no-leakage, audit rejects corrupted rationales, and the fallback template
-sentence passes the audit for every driver set it can receive. The rest cover the
-live recommendation path (`test_recommend.py`) and the study-arm analysis pipeline
-(`test_study_arms.py`, synthetic data only). All 21 pass on a fresh clone.
+pre-close no-leakage, audit rejects corrupted rationales, the fallback template
+sentence passes the audit for every driver set it can receive, and the sentiment
+cache's real pre-close date assignment. The rest cover the live recommendation path
+(`test_recommend.py`) and the study-arm analysis pipeline (`test_study_arms.py`,
+synthetic data only). All 22 pass on a fresh clone.
 
 `run_report_tables.py` needs `study/responses_main.csv` and `study/responses_b.csv`,
 which are pseudonymised participant data and are not published in this repository;

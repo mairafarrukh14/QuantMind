@@ -150,6 +150,7 @@ def main():
         eval_locked = json.load(fh)
     mean_key = next(k for k in eval_locked["main_table"] if k.startswith("PPO (mean"))
     mean_sharpe_5seed = eval_locked["main_table"][mean_key]["Sharpe"]
+    sd_sharpe_5seed = eval_locked["main_table"][mean_key]["_sd"]["Sharpe"]
     n_seeds = 5
 
     out = {
@@ -176,6 +177,7 @@ def main():
             "sortino": metrics_dict[agent_rets.name]["Sortino"],
             "avg_turnover": avg_turnover,
             "mean_sharpe_5seed": mean_sharpe_5seed,
+            "sd_sharpe_5seed": sd_sharpe_5seed,
             "n_seeds": n_seeds,
         },
         "equity": {"dates": d_dates, "agent": a, "buyhold": b, "best": c},

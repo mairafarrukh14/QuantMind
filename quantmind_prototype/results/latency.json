@@ -1,15 +1,23 @@
 {
   "machine": "arm64 Darwin",
   "python": "3.12.3",
-  "requests": 20,
-  "policy_load_s": 2.53,
-  "median_s": 2.2,
-  "p95_s": 3.98,
-  "max_s": 5.22,
+  "policy_load_s": 7.55,
   "threshold_median_s": 5.0,
-  "latency_pass": true,
-  "test_suite_s": 11.8,
-  "test_suite_n": 21,
+  "test_suite_s": 6.8,
+  "test_suite_n": 22,
   "test_suite_passed": true,
-  "test_summary": "============================== 21 passed in 8.04s =============================="
+  "test_summary": "============================== 22 passed in 4.95s ==============================",
+  "with_llm": {
+    "requests": 20,
+    "median_s": 2.02,
+    "p95_s": 2.45,
+    "max_s": 3.41
+  },
+  "latency_pass": true,
+  "template_path": {
+    "requests": 20,
+    "median_s": 0.08,
+    "p95_s": 0.3,
+    "max_s": 1.08
+  }
 }

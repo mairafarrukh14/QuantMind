@@ -97,6 +97,12 @@ def main() -> int:
         flat["core.audit.n_failed_attempts"] = first_fail + second_fail
         flat["core.audit.n_failed_checks"] = sum(v for k, v in flat.items()
                                                  if k.startswith("core.audit.failure_taxonomy."))
+        # each decision needing a retry writes a second sentence, so the model
+        # wrote a - first_fail single-attempt decisions plus 2 sentences each
+        # for the first_fail decisions that needed a retry.
+        flat["core.audit.n_sentences"] = a + first_fail
+        flat["core.audit.rejected_sentence_rate"] = round(
+            flat["core.audit.n_failed_attempts"] / flat["core.audit.n_sentences"], 3)
     # study rows from the two arm files, for the free-text quotations and counts
     for name, f in (("armA", "responses_main.csv"), ("armB", "responses_b.csv")):
         p = os.path.join(ROOT, "study", f)
